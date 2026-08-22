@@ -141,6 +141,102 @@ img { max-width: 100%; display: block; }
 
 .site-nav a:hover { color: var(--paper); }
 
+/* ---------- menu mobile ---------- */
+
+.nav-toggle { display: none; }
+.site-menu-clip { display: none; }
+
+@media (max-width: 760px) {
+  .site-nav { display: none; }
+
+  /* hamburguer que vira X */
+  .nav-toggle {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--paper);
+    transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      rotate 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  }
+  .nav-toggle span:nth-child(1) { top: calc(50% - 7px); }
+  .nav-toggle span:nth-child(2) { top: calc(50% - 1px); }
+  .nav-toggle span:nth-child(3) { top: calc(50% + 5px); }
+
+  .menu-open .nav-toggle span:nth-child(1) { translate: 0 6px; rotate: 45deg; }
+  .menu-open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .menu-open .nav-toggle span:nth-child(3) { translate: 0 -6px; rotate: -45deg; }
+
+  /* o recorte corta tudo acima da borda inferior do header:
+     é o que faz o card "sair de trás" dele ao descer */
+  .site-menu-clip {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 14px 56px;
+    overflow: hidden;
+    overflow: clip;
+    pointer-events: none;
+  }
+
+  /* card no mesmo material do header flutuante */
+  .site-menu {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    padding: 8px;
+    background: color-mix(in srgb, var(--ink-2) 95%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--line-dark);
+    border-radius: 14px;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.38);
+    visibility: hidden;
+    translate: 0 calc(-100% - 32px);
+    transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 0.45s;
+  }
+
+  .menu-open .site-menu {
+    visibility: visible;
+    translate: 0 0;
+    transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-menu a {
+    display: block;
+    padding: 13px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--slate-soft);
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .site-menu a:hover,
+  .site-menu a:active,
+  .site-menu a[aria-current] {
+    color: var(--paper);
+    background: color-mix(in srgb, var(--slate) 35%, transparent);
+  }
+}
+
 /* troca de letras no hover: cada letra é uma cortina de duas cópias
    empilhadas; o atraso por letra (ordem aleatória) vem inline do JS */
 .lswap {
@@ -640,12 +736,11 @@ a.card:focus-visible {
   .site-head, .site-head .wrap, .mark svg { transition: none; }
   .error-page .code path { animation: none; stroke-dashoffset: 0; }
   .contact-row-arrow { transition: none; }
+  .site-menu, .nav-toggle span { transition: none; }
 }
 
 /* ---------- responsivo ---------- */
 
 @media (max-width: 760px) {
   .about-grid { grid-template-columns: 1fr; }
-  .site-nav { font-size: 0.82rem; }
-  .site-nav a[data-sec] { display: none; } /* no mobile, só Games e Contato */
 }

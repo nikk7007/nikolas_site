@@ -117,6 +117,28 @@
   // Revelação no scroll — desligada se o sistema pedir menos movimento.
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Menu mobile — hamburguer abre o card que desce de trás do header.
+  var toggle = document.querySelector(".nav-toggle");
+  if (head && toggle) {
+    var setMenu = function (open) {
+      head.classList.toggle("menu-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    };
+    toggle.addEventListener("click", function () {
+      setMenu(!head.classList.contains("menu-open"));
+    });
+    document.querySelectorAll(".site-menu a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && head.classList.contains("menu-open")) {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+  }
+
   // Links do menu e do footer — troca de letras no hover, em ordem
   // aleatória por letra. Com menos movimento, ficam como texto simples.
   if (!reduced) {
