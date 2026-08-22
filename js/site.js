@@ -38,7 +38,14 @@
     items.forEach(function (item) {
       var href = item.slug ? root + "games/" + item.slug + "/" : item.link;
       var card = el(href ? "a" : "article", "card reveal");
-      if (href) card.href = href;
+      if (href) {
+        card.href = href;
+        // Link externo abre em nova aba; navegação interna fica na mesma.
+        if (/^https?:\/\//i.test(href)) {
+          card.target = "_blank";
+          card.rel = "noopener";
+        }
+      }
 
       var cover = el("div", "card-cover");
       if (item.cover) {
@@ -76,8 +83,68 @@
     renderCards(gamesMount, window.NLS_GAMES, root, "Jogar →");
   }
 
+  // Header flutuante — depois de rolar, descola do topo e das laterais.
+  // Limiares diferentes pra entrar/sair evitam tremida perto do topo.
+  var head = document.querySelector(".site-head");
+  if (head) {
+    var floating = false;
+    var headTick = false;
+    var updateHead = function () {
+      var y = window.scrollY;
+      if (!floating && y > 32) {
+        floating = true;
+        head.classList.add("is-floating");
+      } else if (floating && y < 8) {
+        floating = false;
+        head.classList.remove("is-floating");
+      }
+    };
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (headTick) return;
+        headTick = true;
+        requestAnimationFrame(function () {
+          headTick = false;
+          updateHead();
+        });
+      },
+      { passive: true }
+    );
+    updateHead();
+  }
+
   // Revelação no scroll — desligada se o sistema pedir menos movimento.
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Links do menu e do footer — troca de letras no hover, em ordem
+  // aleatória por letra. Com menos movimento, ficam como texto simples.
+  if (!reduced) {
+    document.querySelectorAll(".site-nav a, .site-foot nav a").forEach(function (link) {
+      var text = link.textContent.trim();
+      if (!text) return;
+      link.setAttribute("aria-label", text);
+
+      var order = [];
+      for (var i = 0; i < text.length; i++) order.push(i);
+      for (var j = order.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var tmp = order[j];
+        order[j] = order[k];
+        order[k] = tmp;
+      }
+
+      var html = "";
+      text.split("").forEach(function (ch, n) {
+        var letter = ch === " " ? "&nbsp;" : esc(ch);
+        html +=
+          '<span class="lswap"><span class="lswap-col" style="transition-delay:' +
+          (order.indexOf(n) * 0.025).toFixed(3) +
+          's"><span>' + letter + "</span><span>" + letter + "</span></span></span>";
+      });
+      link.innerHTML = '<span aria-hidden="true">' + html + "</span>";
+    });
+  }
   var targets = document.querySelectorAll(".reveal");
   if (reduced || !("IntersectionObserver" in window)) {
     targets.forEach(function (t) { t.classList.add("is-in"); });
