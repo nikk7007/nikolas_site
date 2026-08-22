@@ -20,20 +20,4 @@ window.NLS_PROJECTS = [
     link: "https://vipax.eco.br",
     tags: ["Landing page", "Cliente"],
   },
-  {
-    title: "Formulário de briefing",
-    description:
-      "Formulário que envio a clientes no início de cada projeto: as respostas chegam formatadas no meu e-mail e alimentam a proposta.",
-    cover: null,
-    link: "/form/",
-    tags: ["Vue", "Produto próprio"],
-  },
-  {
-    title: "API de e-mail central",
-    description:
-      "Serviço PHP que autentica por app, renderiza e-mails na identidade da marca e envia — com testes e rate limit. Código privado.",
-    cover: null,
-    link: null,
-    tags: ["PHP", "API", "Infra"],
-  },
 ];
