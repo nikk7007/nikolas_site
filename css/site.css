@@ -370,14 +370,10 @@ img { max-width: 100%; display: block; }
 .btn:active { scale: 0.98; filter: brightness(0.9); }
 
 .btn-sand { background: var(--sand); color: var(--ink); }
-.btn-sand::after { background: var(--slate); }
-.btn-sand:hover .btn-text,
-.btn-sand:focus-visible .btn-text { color: var(--paper); }
+.btn-sand::after { background: var(--sand); filter: brightness(0.9);}
 
 .btn-ghost { border-color: var(--line-dark); color: var(--paper); }
 .btn-ghost::after { background: var(--paper); }
-.btn-ghost:hover,
-.btn-ghost:focus-visible { border-color: var(--paper); }
 .btn-ghost:hover .btn-text,
 .btn-ghost:focus-visible .btn-text { color: var(--ink); }
 
