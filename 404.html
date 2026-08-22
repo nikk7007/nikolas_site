@@ -6,16 +6,65 @@
   <title>Página não encontrada — Nikolas Leme Santos</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/site.css" />
 </head>
-<body>
+<body class="error-body">
+  <header class="site-head">
+    <div class="wrap">
+      <a class="mark" href="/" aria-label="Nikolas Leme Santos — início">
+        <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#24272c" />
+          <text x="32" y="43" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" fill="#f4f2ee">N</text>
+          <path d="M14 50 L50 42" stroke="#d8cbb8" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <span>NIKOLAS&nbsp;LEME</span>
+      </a>
+      <nav class="site-nav" aria-label="Seções do site">
+        <a href="/#sobre" data-sec>Sobre</a>
+        <a href="/#projetos" data-sec>Projetos</a>
+        <a href="/games/">Games</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="error-page">
-    <div>
-      <p class="code">404</p>
-      <p>Essa página não existe — ou mudou de endereço quando o site cresceu.</p>
-      <a class="btn btn-sand" href="/"><span class="btn-text">Voltar ao início</span></a>
+    <svg class="hero-lines" viewBox="0 0 1584 396" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="rgba(124,147,172,0.16)" stroke-width="2">
+        <path d="M1888.79 117.81C1737.05 118.28 1592.07 228.86 1292.05 228.69 992.04 228.52 855.74-3.58 695.32-7.84" />
+        <path d="M1816.46 182.95C1622.54 183.07 1339.11 266.94 1045.24 266.11 751.37 265.28 779.46-9.73 659.63-25.53" />
+        <path d="M1858.42 235.23C1751.87 235.15 1646.77 185.73 1435.12 185.73 1223.47 185.73 1228.9 236.45 1011.82 235.23 794.74 234.01 710.21 1 588.52-7.4" />
+        <path d="M1893.33 133.46C1753.04 133.66 1549.54 213.28 1337.8 212.66 1126.05 212.04 1149.17-3.78 1060.03-18.17" />
+        <path d="M1672.2 226.63C1567.44 227.05 1480.42 314.62 1261.5 309.79 1042.58 304.96 988.94-48.64 850.8-77.51" />
+      </g>
+    </svg>
+    <div class="error-inner">
+      <p class="code">404<svg viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M2 20 L98 4" /></svg></p>
+      <p class="error-lead">Essa página não existe — ou mudou de endereço quando o site cresceu.</p>
+      <p class="error-path">Você procurou por <code id="lost-path">/</code></p>
+      <div class="error-actions">
+        <a class="btn btn-ghost" href="/"><span class="btn-text">Voltar ao início</span></a>
+        <a class="arrow-link" href="mailto:contato@nikolasleme.com.br?subject=Link%20quebrado%20no%20site">Me conta o que você procurava →</a>
+      </div>
     </div>
   </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>© 2026 Nikolas Leme Santos</span>
+      <nav aria-label="Links externos">
+        <a href="https://github.com/nikk7007" rel="me">GitHub</a>
+        <a href="https://www.linkedin.com/in/nikolasleme" rel="me">LinkedIn</a>
+        <a href="/games/">Games</a>
+        <a href="/form/">Briefing</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById("lost-path").textContent = location.pathname;</script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>
