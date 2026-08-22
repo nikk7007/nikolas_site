@@ -8,7 +8,13 @@
 apps.json
 form/api/secrets.php
 
+# runtime da API de e-mail (no servidor, vive acima do docroot)
+.ratelimit/
+
 # artefatos
 node_modules/
 vendor/
 .DS_Store
+.phpunit.cache/
+.phpunit.result.cache
+*.log

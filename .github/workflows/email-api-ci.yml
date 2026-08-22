@@ -1,16 +1,22 @@
-name: CI
+name: CI — API de e-mail
 
+# Roda só quando a API de e-mail muda (é a única parte do repo com testes).
 on:
   push:
+    paths: ["api/email/**"]
   pull_request:
+    paths: ["api/email/**"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ['8.2', '8.3']
+        php: ["8.2", "8.3"]
     name: PHP ${{ matrix.php }}
+    defaults:
+      run:
+        working-directory: api/email
     steps:
       - uses: actions/checkout@v4
 

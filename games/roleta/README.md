@@ -1,7 +1,8 @@
 # Spin — Roleta Online
 
-Roleta online grátis para sortear nomes, itens e tomar decisões. Site estático
-hospedado na **Hostinger** no domínio **https://spin.nikolasleme.com.br**.
+Roleta online grátis para sortear nomes, itens e tomar decisões. Parte do
+monorepo do site — vive em **https://nikolasleme.com.br/games/roleta/**
+(o subdomínio antigo `spin.` só redireciona).
 
 ## Estrutura
 
@@ -39,8 +40,9 @@ hospedado na **Hostinger** no domínio **https://spin.nikolasleme.com.br**.
 
 - Registrar o site no [Google Search Console](https://search.google.com/search-console)
   e enviar o `sitemap.xml` para acelerar a indexação.
-- Substituir `ca-pub-XXXXXXXXXXXXXXXXX` no `index.html` pelo seu ID do AdSense
-  (ou remover os blocos de anúncio).
+- Anúncios: removidos em ago/2026 (blocos AdSense, `ads.css` e `ads.txt`) —
+  se um dia voltarem, é recriar os blocos no `index.html` e o `ads.txt` na
+  raiz do domínio.
 
 ### Regerar a imagem de compartilhamento
 

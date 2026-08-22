@@ -76,7 +76,6 @@ outros, só o `.htaccess`).
 - /form/ — enviar um briefing de teste e ver o e-mail chegar
 - /api/email/ — `curl -X POST` com Bearer de teste (ver `api/email/docs/API.md`)
 - https://spin.nikolasleme.com.br → deve cair em /games/roleta/
-- AdSense: `ads.txt` agora responde em https://nikolasleme.com.br/ads.txt
 
 ## Repos antigos no GitHub
 

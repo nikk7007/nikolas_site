@@ -1,4 +1,8 @@
-# nls_email_api
+# API de e-mail central
+
+> Ex-repo `nls_email_api`, hoje parte do monorepo do site em `api/email/`
+> (endpoint: `https://nikolasleme.com.br/api/email/`; o subdomínio antigo
+> `mail.` só redireciona). Deploy e segredos: ver `ops/DEPLOY.md` na raiz.
 
 API de e-mail central do ecossistema do Nikolas. Os apps **não** mandam e-mail
 sozinhos — eles chamam este serviço, que **autentica → renderiza → envia**.
@@ -131,20 +135,18 @@ Layout *front-controller*: o repo é clonado **na raiz do domínio** (o docroot)
     └── .git/                       ← bloqueado na web
 ```
 
-> **Por que os segredos vão na home (acima do docroot):** o docroot é servido pela web.
-> `.env`/`apps.json` ficam um nível acima (na home) pra nunca serem serváveis, nem se o
-> `.htaccess` falhar. O `index.php` os lê via `__DIR__ . '/../.env'`.
+> **Por que os segredos ficam fora do docroot:** o docroot é servido pela web.
+> No monorepo, este app vive em `public_html/api/email/`, e `.env`/`apps.json`
+> ficam ao lado do `public_html` (três níveis acima) pra nunca serem serváveis,
+> nem se o `.htaccess` falhar. O `index.php` os lê via `__DIR__ . '/../../../.env'`.
 
-**Passos (Hostinger, deploy por Git + SSH):**
+**Deploy:** junto com o site inteiro — `./ops/deploy.sh --go` na raiz do monorepo
+(ver `ops/DEPLOY.md`). Não precisa de Composer no servidor: não há deps de runtime,
+o renderer é interno. Lembretes que continuam valendo:
 
-1. Configura o **Git** (hPanel ou `git clone` por SSH) pra clonar o repo **na raiz do
-   domínio** (o docroot, ex. `public_html`). O auto-deploy dá `git pull` a cada push.
-2. **Não precisa de Composer no servidor** — não há deps de runtime; o renderer é interno.
-3. Cria o `.env` e o `apps.json` (a partir dos `.example`) **um nível acima** do docroot
-   (na home). Porte a chave que o `nls_form` já usa pro `apps.json`.
-4. Verifica o domínio na Resend (SPF/DKIM) pro `MAIL_FROM`.
-5. **Confere a blindagem:** `https://<sub>/.git/config` deve dar **403**. Se abrir, o
-   docroot está errado (ou o `.htaccess` não foi aplicado) — o código-fonte está exposto.
+- Domínio verificado na Resend (SPF/DKIM) pro `MAIL_FROM`.
+- **Blindagem:** `https://nikolasleme.com.br/api/email/src/email.php` e
+  `/api/email/composer.json` devem dar **403**.
 
 ## Dev / teste
 
