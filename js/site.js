@@ -184,4 +184,63 @@
     );
     targets.forEach(function (t) { io.observe(t); });
   }
+
+  // Hero raio-X — a lente segue o cursor e revela a camada de baixo.
+  // No toque (sem hover) um botão alterna as camadas inteiras.
+  var xhero = document.querySelector(".hero");
+  var xlayer = xhero && xhero.querySelector(".hero-xray");
+  if (xhero && xlayer) {
+    var xring = xhero.querySelector(".lens-ring");
+    var xbtn = xhero.querySelector(".xray-toggle");
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    if (fine) {
+      var LENS = 150;                    // raio da lente aberta, em px
+      var ease = reduced ? 1 : 0.16;     // com reduced-motion, sem inércia
+      var cx = 0, cy = 0, cr = 0;        // estado atual
+      var tx = 0, ty = 0, tr = 0;        // alvo
+      var rafId = null;
+
+      var lensTick = function () {
+        cx += (tx - cx) * ease;
+        cy += (ty - cy) * ease;
+        cr += (tr - cr) * ease;
+        xlayer.style.clipPath =
+          "circle(" + cr.toFixed(1) + "px at " + cx.toFixed(1) + "px " + cy.toFixed(1) + "px)";
+        if (xring) {
+          xring.style.left = cx.toFixed(1) + "px";
+          xring.style.top = cy.toFixed(1) + "px";
+          xring.style.width = xring.style.height = (cr * 2).toFixed(1) + "px";
+        }
+        if (Math.abs(tx - cx) + Math.abs(ty - cy) + Math.abs(tr - cr) > 0.4) {
+          rafId = requestAnimationFrame(lensTick);
+        } else {
+          rafId = null;
+        }
+      };
+      var lensKick = function () {
+        if (rafId == null) rafId = requestAnimationFrame(lensTick);
+      };
+
+      xhero.addEventListener("pointermove", function (e) {
+        var r = xhero.getBoundingClientRect();
+        tx = e.clientX - r.left;
+        ty = e.clientY - r.top;
+        if (!tr) { cx = tx; cy = ty; } // entra já na posição do cursor
+        tr = LENS;
+        xhero.classList.add("xray-seen");
+        lensKick();
+      });
+      xhero.addEventListener("pointerleave", function () {
+        tr = 0;
+        lensKick();
+      });
+    } else if (xbtn) {
+      xbtn.hidden = false;
+      xbtn.addEventListener("click", function () {
+        var on = xhero.classList.toggle("xray-on");
+        xbtn.textContent = on ? "fechar o raio-X" : "ver o que ninguém vê";
+      });
+    }
+  }
 })();

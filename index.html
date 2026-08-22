@@ -81,23 +81,51 @@
           <path d="M1672.2 226.63C1567.44 227.05 1480.42 314.62 1261.5 309.79 1042.58 304.96 988.94-48.64 850.8-77.51" />
         </g>
       </svg>
-      <div class="wrap">
-        <p class="eyebrow">Nikolas Leme Santos · Desenvolvedor web</p>
-        <h1>
-          Construo sistemas e cuido dos detalhes que
-          <span class="trace">ninguém vê<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 L98 3" /></svg></span>.
-        </h1>
-        <p class="hero-lead">
-          Sites, automações e produtos digitais feitos pra durar. Se o seu negócio
-          precisa de um braço técnico de confiança — não só de alguém que "faz
-          funcionar" — a gente vai se entender.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-sand" href="#contato"><span class="btn-text">Fale comigo</span></a>
-          <a class="btn btn-ghost" href="#projetos"><span class="btn-text">Ver projetos</span></a>
+      <div class="hero-front">
+        <div class="wrap hero-center">
+          <h1>
+            Construo sistemas e cuido dos detalhes que
+            <span class="trace">ninguém vê<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 L98 3" /></svg></span>.
+          </h1>
+          <p class="hero-lead">
+            Sites, automações e produtos digitais feitos pra durar — não pra
+            parecer rápidos.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-sand" href="#contato"><span class="btn-text">Fale comigo</span></a>
+            <a class="arrow-link" href="#projetos">Ver projetos →</a>
+          </div>
+          <p class="hero-meta">Desenvolvedor web · Brasil · disponível para projetos e oportunidades</p>
+          <p class="hero-hint" aria-hidden="true">// passa o mouse: tem coisa aqui que você não está vendo</p>
+          <button class="xray-toggle" hidden>ver o que ninguém vê</button>
         </div>
-        <p class="hero-meta">Brasil · disponível para projetos e oportunidades</p>
       </div>
+
+      <!-- a camada que ninguém vê: mesmo hero, com o trabalho invisível anotado.
+           Os valores são reais, copiados do próprio site.css. -->
+      <div class="hero-xray" aria-hidden="true">
+        <div class="xray-grid"></div>
+        <div class="wrap hero-center">
+          <h1>
+            <i class="xn xn-h1">&lt;h1&gt; clamp(2.1rem, 5.6vw, 4rem) · line-height: 1.12 · tracking −0.02em</i>
+            <i class="xn xn-balance">text-wrap: balance</i>
+            Construo sistemas e cuido dos detalhes que
+            <span class="trace">ninguém vê<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 L98 3" /></svg><i class="xn xn-sand xn-trace">#d8cbb8 /* o único ponto quente */</i></span>.
+          </h1>
+          <p class="hero-lead">
+            Sites, automações e produtos digitais feitos pra durar — não pra
+            parecer rápidos.
+            <i class="xn xn-lead">max-width: 52ch /* medida de leitura */</i>
+          </p>
+          <div class="hero-cta">
+            <span class="xbtn">Fale comigo<i class="xn xn-btn">.btn-sand · radius 6px</i></span>
+            <span class="xlink">Ver projetos →</span>
+          </div>
+          <p class="hero-meta xmeta">Desenvolvedor web · Brasil · disponível para projetos e oportunidades</p>
+          <i class="xn xn-rule">/* regra da marca: nunca mais de um ponto quente (areia) por tela */</i>
+        </div>
+      </div>
+      <div class="lens-ring" aria-hidden="true"></div>
     </section>
 
     <section id="sobre" class="section section-paper">
