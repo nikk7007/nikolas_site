@@ -501,13 +501,6 @@ img { max-width: 100%; display: block; }
   left: 50%;
   translate: -50% 0;
 }
-.xn-rule {
-  position: static;
-  display: block;
-  margin-top: 38px;
-  white-space: normal;
-}
-
 /* réplicas dos CTAs em wireframe, com as mesmas medidas dos reais */
 .xbtn {
   display: inline-block;
