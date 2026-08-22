@@ -1,0 +1,187 @@
+/* tweaks.css — floating action button and customization panel */
+
+.tweaks-fab {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  transition: transform 0.15s ease;
+}
+.tweaks-fab:hover {
+  transform: scale(1.08) rotate(20deg);
+}
+
+.tweaks-panel {
+  position: fixed;
+  bottom: 78px;
+  right: 22px;
+  width: 320px;
+  max-height: 70vh;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: panelIn 0.25s ease;
+}
+.tweaks-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.tweaks-head h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+}
+.tweaks-body {
+  padding: 16px 18px 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.tweak-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tweak-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.tweak-swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.tweak-swatch {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  padding: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+.tweak-swatch:hover {
+  transform: translateY(-1px);
+  border-color: var(--ink-mute);
+}
+.tweak-swatch.is-active {
+  border-color: var(--ink);
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 3px var(--ink);
+}
+.tweak-swatch span {
+  border-radius: 4px;
+}
+
+.tweak-radio {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+}
+.tweak-radio button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border-radius: 999px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.tweak-radio button.is-active {
+  background: var(--ink);
+  color: var(--accent-ink);
+}
+
+.tweak-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+.toggle-switch {
+  width: 36px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--line);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-elev);
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.toggle-switch.is-on {
+  background: var(--ink);
+}
+.toggle-switch.is-on::before {
+  transform: translateX(16px);
+}
+
+.tweak-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tweak-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tweak-slider input[type="range"] {
+  flex: 1;
+  accent-color: var(--ink);
+}
+.tweak-slider-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-mute);
+  min-width: 32px;
+  text-align: right;
+}

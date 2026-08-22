@@ -1,0 +1,65 @@
+/* modal-bulk.css — bulk add items modal */
+
+.bulk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 18, 15, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fade 0.25s ease;
+  padding: 20px;
+}
+.bulk-card {
+  position: relative;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 32px 28px;
+  width: min(520px, 100%);
+  animation: rise 0.4s cubic-bezier(0.16, 0.84, 0.36, 1.06);
+}
+.bulk-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.bulk-hint {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin: 0 0 14px;
+}
+.bulk-textarea {
+  width: 100%;
+  min-height: 160px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.55;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s ease;
+  display: block;
+}
+.bulk-textarea::placeholder {
+  color: var(--ink-mute);
+}
+.bulk-textarea:focus {
+  border-color: var(--ink-mute);
+}
+.bulk-preview {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+  margin: 10px 0 18px;
+}

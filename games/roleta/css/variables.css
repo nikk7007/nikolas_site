@@ -1,0 +1,61 @@
+/* variables.css — design tokens (light and dark themes) */
+
+:root {
+  /* light theme — warm sand, not clinical white */
+  --bg: #eee6d8;
+  --bg-elev: #f5efe3;
+  --bg-sunken: #e4dace;
+  --ink: #28231d;
+  --ink-soft: #5c564e;
+  --ink-mute: #948c82;
+  --line: #cec5b4;
+  --line-soft: #d9d1c2;
+  --accent: #28231d;
+  --accent-ink: #f5efe3;
+  --danger: #b1422d;
+  --success: #3c7a4d;
+
+  --pointer-fill: #28231d;
+  --pointer-stroke: #28231d;
+
+  --shadow-sm:
+    0 1px 2px rgba(28, 26, 23, 0.06), 0 1px 1px rgba(28, 26, 23, 0.04);
+  --shadow-md:
+    0 4px 14px rgba(28, 26, 23, 0.08), 0 1px 3px rgba(28, 26, 23, 0.06);
+  --shadow-lg:
+    0 24px 60px rgba(28, 26, 23, 0.18), 0 6px 18px rgba(28, 26, 23, 0.08);
+  --shadow-wheel:
+    0 30px 80px rgba(28, 26, 23, 0.18), 0 8px 24px rgba(28, 26, 23, 0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --font-display: "Instrument Serif", "Times New Roman", serif;
+  --font-ui: "Geist", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #161412;
+  --bg-elev: #1f1c19;
+  --bg-sunken: #100e0c;
+  --ink: #f3ede1;
+  --ink-soft: #b8b1a3;
+  --ink-mute: #7c766c;
+  --line: #2c2823;
+  --line-soft: #221f1c;
+  --accent: #f3ede1;
+  --accent-ink: #161412;
+  --danger: #d96c52;
+  --success: #6da97f;
+
+  --pointer-fill: #f3ede1;
+  --pointer-stroke: #f3ede1;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55), 0 6px 18px rgba(0, 0, 0, 0.35);
+  --shadow-wheel:
+    0 30px 80px rgba(0, 0, 0, 0.55), 0 8px 24px rgba(0, 0, 0, 0.35);
+}

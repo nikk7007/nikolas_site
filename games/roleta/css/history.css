@@ -1,0 +1,42 @@
+/* history.css — spin history panel */
+
+.panel--history {
+  padding-bottom: 8px;
+}
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-radius: 8px;
+}
+.history-item:hover {
+  background: var(--bg);
+}
+.history-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.history-name {
+  flex: 1;
+  color: var(--ink);
+}
+.history-time {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+}

@@ -1,0 +1,90 @@
+/* modal-presets.css — preset selection modal */
+
+.presets-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 18, 15, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fade 0.25s ease;
+  padding: 20px;
+}
+.presets-card {
+  position: relative;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 32px 28px;
+  width: min(560px, 100%);
+  animation: rise 0.4s cubic-bezier(0.16, 0.84, 0.36, 1.06);
+}
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+.preset-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 6px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+  text-align: center;
+}
+.preset-chip:hover {
+  border-color: var(--ink-mute);
+  background: var(--bg);
+}
+.preset-chip.is-selected {
+  border-color: var(--accent);
+  background: var(--bg-elev);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.preset-chip-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+.preset-chip-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.preset-chip-count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-mute);
+  letter-spacing: 0.04em;
+}
+.presets-preview {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--bg-sunken);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  animation: itemIn 0.2s ease;
+}
+.presets-preview-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.presets-preview-items {
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}

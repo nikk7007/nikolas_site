@@ -1,0 +1,36 @@
+# ============================================================================
+# nikolasleme.com.br — raiz do site (o repo inteiro é o docroot).
+# Cada app PHP (form/api, api/email) tem seu próprio .htaccess com regras extra.
+# ============================================================================
+
+RewriteEngine On
+
+# --- Força HTTPS ---
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- Página de erro ---
+ErrorDocument 404 /404.html
+
+# --- Nada de servir arquivos de projeto/dev ---
+# Caminhos com segmento começando por "." (.git, .env, ...), exceto .well-known.
+RewriteRule (^|/)\.(?!well-known) - [F,L]
+# Pastas de operação e docs do repo.
+RewriteRule ^ops(/|$) - [F,L]
+RewriteRule \.(md|example|lock|dist)$ - [F,L]
+
+# --- Compressão ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Cache de estáticos ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType text/html "access plus 1 day"
+</IfModule>

@@ -1,0 +1,13 @@
+{
+  "_comentario": "Mapa: chave da API -> identidade do app. NO SERVIDOR fica UM NÍVEL ACIMA do docroot (na home, fora da raiz web), como o .env. Não versione o apps.json real. Gere cada chave com: openssl rand -hex 32",
+
+  "GERE_UMA_CHAVE_COM_openssl_rand_hex_32": {
+    "name": "form",
+    "from": "Nikolas Leme <formulario@nikolasleme.com.br>"
+  },
+  "OUTRA_CHAVE_PARA_O_PROXIMO_APP": {
+    "name": "blog",
+    "from": "Blog do Nikolas <blog@nikolasleme.com.br>",
+    "rpm": 30
+  }
+}

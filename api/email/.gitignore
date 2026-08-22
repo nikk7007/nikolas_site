@@ -1,0 +1,16 @@
+# Deps (Composer) — geradas (composer.lock É versionado)
+vendor/
+
+# Segredos — NUNCA versionar
+.env
+apps.json
+
+# Estado do rate limit (runtime)
+.ratelimit/
+
+# Cache do PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
+
+# Artefatos
+*.log

@@ -1,0 +1,20 @@
+/* ads.css — ad unit containers */
+
+.ad-unit {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #c8c8c8;
+  border-radius: 4px;
+}
+.ad-unit--banner {
+  padding: 8px 28px;
+}
+.ad-unit--sidebar {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 90px;
+}
+@media (max-width: 480px) {
+  .ad-unit--banner { padding: 8px 10px; }
+}

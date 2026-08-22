@@ -1,0 +1,14 @@
+# Segredos NUNCA entram no repo (no servidor eles vivem ACIMA do docroot):
+#   .env         -> API de e-mail (api/email)
+#   .env.form    -> formulário (form/api)
+#   apps.json    -> tokens por app da API de e-mail
+.env
+.env.*
+!.env.example
+apps.json
+form/api/secrets.php
+
+# artefatos
+node_modules/
+vendor/
+.DS_Store

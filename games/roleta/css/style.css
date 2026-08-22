@@ -1,0 +1,26 @@
+/* style.css — entry point
+   SPIN — Roleta dinâmica
+   Type: Instrument Serif (display) + Geist (UI) + JetBrains Mono (numbers)
+*/
+
+@import "variables.css";
+@import "reset.css";
+@import "animations.css";
+@import "layout.css";
+@import "topbar.css";
+@import "buttons.css";
+@import "stage.css";
+@import "sidebar.css";
+@import "item-list.css";
+@import "empty-state.css";
+@import "history.css";
+@import "modal-result.css";
+@import "modal-presets.css";
+@import "modal-bulk.css";
+@import "locked-state.css";
+@import "effects.css";
+@import "toast.css";
+@import "tweaks.css";
+@import "ads.css";
+@import "seo.css";
+@import "responsive.css";

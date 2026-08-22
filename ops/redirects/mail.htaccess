@@ -1,0 +1,4 @@
+# mail.nikolasleme.com.br -> nikolasleme.com.br/api/email/ (301 permanente)
+# Consumidores da API devem atualizar a URL; o 301 cobre a transição.
+RewriteEngine On
+RewriteRule ^(.*)$ https://nikolasleme.com.br/api/email/$1 [R=301,L]

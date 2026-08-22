@@ -1,0 +1,13 @@
+/* locked-state.css — sidebar disabled state while wheel is spinning */
+
+.sidebar.is-locked .item-list {
+  pointer-events: none;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+.sidebar.is-locked .add-row input,
+.sidebar.is-locked .add-row button,
+.sidebar.is-locked .panel-actions button {
+  pointer-events: none;
+  opacity: 0.4;
+}

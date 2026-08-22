@@ -1,0 +1,19 @@
+{
+  "name": "Spin — Roleta Online",
+  "short_name": "Spin",
+  "description": "Roleta online grátis para sortear qualquer coisa. Adicione seus itens, personalize e gire!",
+  "start_url": "/games/roleta/",
+  "scope": "/games/roleta/",
+  "display": "standalone",
+  "lang": "pt-BR",
+  "background_color": "#eee6d8",
+  "theme_color": "#eee6d8",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

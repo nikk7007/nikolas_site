@@ -1,0 +1,9 @@
+# qse.nikolasleme.com.br -> nikolasleme.com.br/games/quem-sou-eu/ (301 permanente)
+#
+# Exceção: sw.js NÃO redireciona — navegadores rejeitam redirect na atualização
+# de service worker, e o SW antigo (cache-first) ficaria vivo pra sempre servindo
+# a versão em cache. O qse-sw.js (kill-switch, subir como sw.js nesta pasta)
+# substitui o antigo, limpa os caches e se desregistra.
+RewriteEngine On
+RewriteRule ^sw\.js$ - [L]
+RewriteRule ^(.*)$ https://nikolasleme.com.br/games/quem-sou-eu/$1 [R=301,L]

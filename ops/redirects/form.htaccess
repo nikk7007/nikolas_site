@@ -1,0 +1,3 @@
+# form.nikolasleme.com.br -> nikolasleme.com.br/form/ (301 permanente)
+RewriteEngine On
+RewriteRule ^(.*)$ https://nikolasleme.com.br/form/$1 [R=301,L]

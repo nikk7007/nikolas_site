@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta
+      name="description"
+      content="Quem sou eu? é um jogo de adivinhação para grupos: o app sorteia uma palavra, você encosta o celular na testa e os amigos dão dicas. Web, grátis, sem instalar."
+    />
+    <title>Quem sou eu? — Jogo de adivinhação para grupos</title>
+    <link rel="canonical" href="https://nikolasleme.com.br/games/quem-sou-eu/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Quem sou eu?" />
+    <meta property="og:url" content="https://nikolasleme.com.br/games/quem-sou-eu/" />
+    <meta
+      property="og:title"
+      content="Quem sou eu? — Jogo de adivinhação para grupos"
+    />
+    <meta
+      property="og:description"
+      content="O app sorteia uma palavra, você encosta o celular na testa e os amigos dão dicas. Web, grátis, sem instalar."
+    />
+    <meta
+      property="og:image"
+      content="https://nikolasleme.com.br/games/quem-sou-eu/assets/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Quem sou eu? — Jogo de adivinhação para grupos"
+    />
+    <meta
+      name="twitter:description"
+      content="O app sorteia uma palavra, você encosta o celular na testa e os amigos dão dicas. Web, grátis, sem instalar."
+    />
+    <meta
+      name="twitter:image"
+      content="https://nikolasleme.com.br/games/quem-sou-eu/assets/og-image.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body>
+    <main class="stage">
+      <!-- 1. Escolha de categoria -->
+      <section class="screen" data-screen="categoria">
+        <header class="intro">
+          <p class="eyebrow">jogo de palavra</p>
+          <h1 class="title">Quem sou eu?</h1>
+          <p class="lede">
+            Escolha uma categoria. O app sorteia a palavra — ninguém vê antes da
+            hora.
+          </p>
+        </header>
+        <div class="cats" id="cats"><!-- cards injetados pelo JS --></div>
+      </section>
+
+      <!-- 2. Pronto (palavra sorteada, oculta) -->
+      <section class="screen" data-screen="pronto">
+        <div class="ready">
+          <p class="ready-cat" id="readyCat">Animais</p>
+          <p class="ready-mark">
+            Palavra escolhida <span class="check">✓</span>
+          </p>
+          <p class="ready-hint">
+            Encoste o celular na testa e toque em iniciar.
+          </p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" id="btnIniciar">
+            Visualizar palavra
+          </button>
+          <button class="btn btn-ghost" id="btnTrocarCategoria">
+            Voltar ao início
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. Preparar (contagem 3s) -->
+      <section class="screen" data-screen="preparar">
+        <p class="prep-label" id="preparaCat"></p>
+        <p class="prep-label">prepare-se</p>
+        <p class="countdown" id="countdown" aria-live="assertive">3</p>
+        <div class="actions">
+          <button class="btn btn-ghost" id="btnCancelar">Cancelar</button>
+        </div>
+      </section>
+
+      <!-- 4. Revelação -->
+      <section class="screen screen-reveal" data-screen="revelar">
+        <div class="bloom" aria-hidden="true"></div>
+        <p class="word" id="word" aria-live="assertive"></p>
+        <div class="progress" aria-hidden="true">
+          <span class="progress-bar" id="progressBar"></span>
+        </div>
+      </section>
+
+      <!-- 5. Oculto (pós-revelação) -->
+      <section class="screen" data-screen="oculto">
+        <div class="ready">
+          <p class="ready-cat" id="ocultosCat"></p>
+          <p class="ready-mark hidden-mark">Palavra oculta</p>
+          <p class="ready-hint">Quer ver de novo?</p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" id="btnLerDeNovo">Ler de novo</button>
+          <button class="btn btn-ghost" id="btnNovaPalavra">
+            Nova palavra
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. Personalizado (alguém digita a palavra) -->
+      <section class="screen" data-screen="personalizado">
+        <div class="ready">
+          <p class="ready-cat">Personalizado</p>
+          <p class="custom-title">Digite a palavra</p>
+          <p class="ready-hint">
+            Outra pessoa digita — o jogador da vez não olha.
+          </p>
+        </div>
+        <form class="actions" id="formPersonalizado">
+          <input
+            class="custom-input"
+            id="inputPalavra"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            autocapitalize="characters"
+            maxlength="40"
+            placeholder="ex: Capivara"
+            aria-label="Palavra personalizada"
+          />
+          <button class="btn btn-primary" type="submit">Usar palavra</button>
+          <button class="btn btn-ghost" type="button" id="btnCancelarCustom">
+            Voltar ao início
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- HUD telemetry frame -->
+    <div class="hud" aria-hidden="true">
+      <span class="tl">// QUEM-SOU-EU : SYS</span>
+      <span class="tr">REV 2.6</span>
+      <span class="bl">UNIT / D-01</span>
+      <span class="br">+ LIVE</span>
+    </div>
+    <!-- CRT scanlines -->
+    <div class="scan" aria-hidden="true"></div>
+
+    <script src="words.js"></script>
+    <script src="app.js"></script>
+    <script>
+      // Registra o service worker (offline). Requer https ou localhost.
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js").catch(function () {});
+        });
+      }
+    </script>
+  </body>
+</html>

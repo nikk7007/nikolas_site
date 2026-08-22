@@ -1,0 +1,15 @@
+/* layout.css — main flex container */
+
+.layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 28px;
+  min-height: calc(100vh - 80px);
+  align-items: start;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}

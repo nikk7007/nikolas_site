@@ -1,0 +1,103 @@
+/* buttons.css — ghost-btn, link-btn, primary-btn, add-row input */
+
+.ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: all 0.15s ease;
+}
+.ghost-btn:hover {
+  color: var(--ink);
+  border-color: var(--ink-mute);
+  background: var(--bg);
+}
+.ghost-btn--danger:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.ghost-btn--troll:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.link-btn {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+  font-size: 13px;
+}
+.link-btn:hover {
+  color: var(--ink-soft);
+}
+
+.add-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.add-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+.add-row input::placeholder {
+  color: var(--ink-mute);
+}
+.add-row input:focus {
+  border-color: var(--ink);
+  background: var(--bg-elev);
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  transition:
+    transform 0.12s ease,
+    background 0.12s ease,
+    opacity 0.12s ease;
+}
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+.primary-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.primary-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.primary-btn--lg {
+  padding: 14px 22px;
+  font-size: 15px;
+}

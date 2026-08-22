@@ -1,0 +1,32 @@
+# ============================================================================
+# Docroot = raiz do repo (o git pull cai aqui). Só o index.php é ponto de entrada;
+# o resto do repo (.git, src/, tests/, composer.*, ...) NÃO pode ser servido.
+# Os segredos (.env, apps.json) e o .ratelimit/ ficam ACIMA deste docroot, na home.
+# ============================================================================
+
+# --- Repassa o header Authorization pro PHP (LiteSpeed/Apache às vezes não repassam) ---
+<IfModule Litespeed>
+CGIPassAuth On
+</IfModule>
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+DirectoryIndex index.php
+
+# --- Bloqueia tudo que não é o ponto de entrada ---
+
+# Qualquer caminho com um segmento começando por "." (.git, .env, .gitignore,
+# .github, ...), exceto .well-known (necessário pra emissão de SSL).
+RewriteRule (^|/)\.(?!well-known)  - [F,L]
+
+# Pastas e arquivos de projeto/dev que ficam no repo mas não devem ser servidos.
+RewriteRule ^(src|tests|vendor|bin|docs)(/|$)       - [F,L]
+RewriteRule ^(composer\.(json|lock)|phpunit\.xml)$  - [F,L]
+RewriteRule ^apps\.json$                            - [F,L]
+RewriteRule \.(md|dist|example)$                     - [F,L]
+
+# Defesa extra por nome de arquivo (acesso direto que escape do rewrite).
+<FilesMatch "(?i)(^\.|\.(git|env|md|lock|dist|example)$|^composer\.json$|^phpunit\.xml$|^apps\.json$)">
+    Require all denied
+</FilesMatch>

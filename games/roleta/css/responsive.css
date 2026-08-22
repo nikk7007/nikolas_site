@@ -1,0 +1,242 @@
+/* responsive.css — media queries for all breakpoints */
+
+@media (max-width: 1024px) {
+  .layout {
+    padding: 14px;
+    gap: 14px;
+  }
+  .stage {
+    min-height: 0;
+  }
+  .sidebar {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .topbar {
+    padding: 12px 14px;
+  }
+  .brand-name {
+    font-size: 22px;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+  .icon-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .icon-btn.icon-only {
+    padding: 8px;
+  }
+
+  .layout {
+    padding: 12px;
+    gap: 12px;
+  }
+  .stage {
+    padding: 14px 10px 18px;
+    min-height: 0;
+    border-radius: 18px;
+  }
+  .wheel-wrap {
+    width: min(560px, 90vw, 62vh);
+  }
+  .spin-hub-label {
+    font-size: clamp(20px, 6vw, 32px);
+  }
+  .spin-hub-sub {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
+
+  .stage-status {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .status-pill,
+  .count-pill {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .panel {
+    padding: 14px;
+    border-radius: 18px;
+  }
+  .panel-head {
+    margin-bottom: 12px;
+  }
+  .panel-head h2 {
+    font-size: 20px;
+  }
+  .ghost-btn {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .add-row input {
+    padding: 13px 14px;
+    font-size: 16px; /* avoid iOS zoom */
+  }
+  .primary-btn {
+    padding: 13px 16px;
+  }
+
+  .item-list {
+    max-height: 320px;
+  }
+  .item {
+    padding: 10px 10px;
+    border: 1px solid var(--line-soft);
+    background: var(--bg);
+  }
+  .item-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 6px;
+  }
+  .item-label {
+    font-size: 15px;
+    padding: 6px 0;
+  }
+  /* always visible — no hover on touch */
+  .item-remove {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+  }
+
+  .history-list {
+    max-height: 160px;
+  }
+
+  .pointer svg {
+    width: 36px;
+    height: 50px;
+  }
+
+  .tweaks-panel {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 76px;
+    max-height: 78vh;
+  }
+  .tweaks-fab {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
+  }
+
+  .result-overlay {
+    padding: 16px;
+  }
+  .result-card {
+    padding: 28px 22px 22px;
+  }
+  .result-name {
+    font-size: clamp(32px, 10vw, 48px);
+  }
+  .result-swatch {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+  }
+  .brand-sub {
+    display: none;
+  }
+  .icon-btn span {
+    display: none;
+  }
+  .icon-btn {
+    padding: 9px;
+  }
+
+  .layout {
+    padding: 10px;
+    gap: 10px;
+  }
+  .stage {
+    padding: 12px 6px 16px;
+    border-radius: 16px;
+  }
+  .wheel-wrap {
+    width: min(560px, 94vw, 60vh);
+  }
+
+  .panel {
+    padding: 12px;
+    border-radius: 16px;
+  }
+  .panel-head h2 {
+    font-size: 19px;
+  }
+  .panel-actions {
+    gap: 4px;
+  }
+  .ghost-btn {
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+  .ghost-btn svg {
+    display: none;
+  }
+
+  .item-list {
+    max-height: 280px;
+  }
+
+  .result-card {
+    padding: 26px 18px 18px;
+  }
+  .result-name {
+    font-size: clamp(28px, 11vw, 42px);
+  }
+  .result-eyebrow {
+    margin-bottom: 12px;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+  .result-swatch {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+    border-width: 3px;
+  }
+  .result-meta {
+    margin-bottom: 20px;
+  }
+
+  .toast {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+}
+
+/* very small / landscape phones */
+@media (max-height: 560px) and (orientation: landscape) {
+  .wheel-wrap {
+    width: min(420px, 50vw, 80vh);
+  }
+}
+
+/* respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Games &amp; minisites — Nikolas Leme Santos</title>
+  <meta name="description" content="Joguinhos e ferramentas que rodam direto no navegador: roleta de sorteios, quem sou eu e o que mais sair do forno." />
+  <link rel="canonical" href="https://nikolasleme.com.br/games/" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Games &amp; minisites — Nikolas Leme Santos" />
+  <meta property="og:description" content="Joguinhos e ferramentas que rodam direto no navegador." />
+  <meta property="og:url" content="https://nikolasleme.com.br/games/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="mark" href="../" aria-label="Nikolas Leme Santos — início">
+        <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#24272c" />
+          <text x="32" y="43" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" fill="#f4f2ee">N</text>
+          <path d="M14 50 L50 42" stroke="#d8cbb8" stroke-width="4" stroke-linecap="round" />
+        </svg>
+        <span>NIKOLAS&nbsp;LEME</span>
+      </a>
+      <nav class="site-nav" aria-label="Seções do site">
+        <a href="../#sobre" data-sec>Sobre</a>
+        <a href="../#projetos" data-sec>Projetos</a>
+        <a href="./" aria-current="page">Games</a>
+        <a href="../#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-ink" style="min-height: 70svh">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Games &amp; minisites</p>
+          <h2>O catálogo.</h2>
+          <p class="section-sub">
+            Tudo aqui roda direto no navegador, de graça, sem cadastro. Feitos
+            pra rodas de amigos — e abertos pra quem chegar.
+          </p>
+        </div>
+        <div id="games-cards" class="cards" data-root="../"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>© 2026 Nikolas Leme Santos</span>
+      <nav aria-label="Links externos">
+        <a href="https://github.com/nikk7007" rel="me">GitHub</a>
+        <a href="../">Início</a>
+        <a href="../form/">Briefing</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/data/games.js" defer></script>
+  <script src="../js/site.js" defer></script>
+</body>
+</html>

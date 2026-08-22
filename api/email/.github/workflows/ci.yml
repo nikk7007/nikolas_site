@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.2', '8.3']
+    name: PHP ${{ matrix.php }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring
+          tools: phpunit:11
+          coverage: none
+
+      # Sem `composer install`: não há dependência de runtime (renderer é local).
+      # O phpunit vem do setup-php; nenhum secret é necessário.
+      - name: Lint
+        run: |
+          for f in $(find . -name '*.php' -not -path './vendor/*'); do php -l "$f"; done
+
+      - name: Test
+        run: phpunit
