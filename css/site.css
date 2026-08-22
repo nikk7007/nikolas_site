@@ -464,25 +464,49 @@ a.card:focus-visible {
 }
 .contact-mail:hover { border-bottom-color: var(--sand); }
 
-.contact-paths {
+/* canais como lista escaneável: nome, dica curta, seta */
+.contact-list {
+  margin-top: clamp(36px, 6vh, 56px);
+  border-top: 1px solid var(--line-dark);
+}
+
+.contact-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(20px, 4vw, 40px);
-  margin-top: clamp(36px, 6vh, 60px);
+  grid-template-columns: minmax(110px, 170px) 1fr auto;
+  align-items: baseline;
+  gap: 4px 20px;
+  padding-block: 17px;
+  border-bottom: 1px solid var(--line-dark);
+  text-decoration: none;
 }
 
-.contact-paths h3 {
-  margin: 0 0 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.contact-row-name {
+  font-weight: 700;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+
+.contact-row-hint {
   color: var(--slate-soft);
+  font-size: 0.92rem;
 }
 
-.contact-paths p { margin: 0; color: color-mix(in srgb, var(--paper) 70%, var(--slate-soft)); font-size: 0.95rem; }
+.contact-row-arrow {
+  color: var(--slate-soft);
+  transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
 
-.contact-paths a { color: var(--paper); }
+.contact-row:hover .contact-row-arrow,
+.contact-row:focus-visible .contact-row-arrow {
+  translate: 6px 0;
+  color: var(--sand);
+}
+
+@media (max-width: 560px) {
+  .contact-row { grid-template-columns: 1fr auto; }
+  .contact-row-hint { grid-column: 1 / -1; }
+}
 
 /* ---------- footer ---------- */
 
@@ -615,6 +639,7 @@ a.card:focus-visible {
   .btn::after, .btn .btn-text { transition: none; }
   .site-head, .site-head .wrap, .mark svg { transition: none; }
   .error-page .code path { animation: none; stroke-dashoffset: 0; }
+  .contact-row-arrow { transition: none; }
 }
 
 /* ---------- responsivo ---------- */
