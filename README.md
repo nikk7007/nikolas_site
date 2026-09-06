@@ -5,19 +5,19 @@ Um push + `./ops/deploy.sh --go` e o site inteiro está atualizado.
 
 ```
 ├── index.html            landing: sobre, história, vitrine, contato
-├── games/
-│   ├── index.html        catálogo (renderiza js/data/games.js)
+├── minisites/
+│   ├── index.html        catálogo (renderiza js/data/minisites.js)
 │   ├── roleta/           Spin — roleta online (ex-repo spin)
 │   ├── quem-sou-eu/      PWA de adivinhação (ex-repo quem_sou_eu)
 │   └── juros-compostos/  calculadora de juros (build React; fonte em apps/)
 ├── apps/                 fontes dos apps buildados (não sobem no deploy)
-│   └── juros-compostos/  Vite + React + Recharts → builda pra games/
+│   └── juros-compostos/  Vite + React + Recharts → builda pra minisites/
 ├── form/                 formulário de briefing (build Vue; fonte no repo nls_form)
 │   └── api/send.php      envia respostas por e-mail (Resend)
 ├── api/email/            API de e-mail central (ex-repo nls_email_api)
 ├── js/data/
 │   ├── projects.js       ← adicionar projeto na vitrine = 1 entrada aqui
-│   └── games.js          ← publicar jogo = pasta em games/ + 1 entrada aqui
+│   └── minisites.js      ← publicar minisite = pasta em minisites/ + 1 entrada aqui
 ├── css/site.css          identidade NLS (tokens do brandbook)
 └── ops/                  deploy (rsync), redirects 301, guia de migração
 ```
@@ -26,7 +26,7 @@ Um push + `./ops/deploy.sh --go` e o site inteiro está atualizado.
 
 - **Projeto na vitrine**: uma entrada em `js/data/projects.js` (sem imagem?
   `cover: null` gera capa tipográfica na identidade).
-- **Jogo/minisite**: pasta nova em `games/<slug>/` + entrada em `js/data/games.js`.
+- **Jogo/minisite**: pasta nova em `minisites/<slug>/` + entrada em `js/data/minisites.js`.
   Caminhos internos do jogo devem ser **relativos** (ele vive em subpasta).
 
 ## Segredos
@@ -52,8 +52,8 @@ cd api/email && composer install && composer test
 | URL | Conteúdo |
 |---|---|
 | nikolasleme.com.br | landing (este repo, raiz) |
-| /games, /games/roleta, /games/quem-sou-eu | jogos |
-| /games/juros-compostos | calculadora de juros compostos |
+| /minisites, /minisites/roleta, /minisites/quem-sou-eu | jogos |
+| /minisites/juros-compostos | calculadora de juros compostos |
 | /form | briefing de clientes |
 | /api/email | API de e-mail central |
 | links.nikolasleme.com.br | app de links (repo próprio, com banco) |

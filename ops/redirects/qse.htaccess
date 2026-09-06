@@ -1,4 +1,4 @@
-# qse.nikolasleme.com.br -> nikolasleme.com.br/games/quem-sou-eu/ (301 permanente)
+# qse.nikolasleme.com.br -> nikolasleme.com.br/minisites/quem-sou-eu/ (301 permanente)
 #
 # Exceção: sw.js NÃO redireciona — navegadores rejeitam redirect na atualização
 # de service worker, e o SW antigo (cache-first) ficaria vivo pra sempre servindo
@@ -6,4 +6,4 @@
 # substitui o antigo, limpa os caches e se desregistra.
 RewriteEngine On
 RewriteRule ^sw\.js$ - [L]
-RewriteRule ^(.*)$ https://nikolasleme.com.br/games/quem-sou-eu/$1 [R=301,L]
+RewriteRule ^(.*)$ https://nikolasleme.com.br/minisites/quem-sou-eu/$1 [R=301,L]

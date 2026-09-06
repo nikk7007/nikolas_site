@@ -72,10 +72,10 @@ outros, só o `.htaccess`).
 ### 6. Conferência
 
 - https://nikolasleme.com.br — landing
-- /games/ , /games/roleta/ , /games/quem-sou-eu/ (PWA: instalar e testar offline)
+- /minisites/ , /minisites/roleta/ , /minisites/quem-sou-eu/ (PWA: instalar e testar offline)
 - /form/ — enviar um briefing de teste e ver o e-mail chegar
 - /api/email/ — `curl -X POST` com Bearer de teste (ver `api/email/docs/API.md`)
-- https://spin.nikolasleme.com.br → deve cair em /games/roleta/
+- https://spin.nikolasleme.com.br → deve cair em /minisites/roleta/
 
 ## Repos antigos no GitHub
 

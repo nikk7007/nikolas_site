@@ -4,7 +4,7 @@
 // sem isto, ele serviria a versão em cache pra sempre e o usuário nunca veria
 // o redirect pro endereço novo. Este SW substitui o antigo (mesma URL sw.js),
 // limpa os caches, se desregistra e recarrega as janelas abertas — que então
-// caem no 301 e chegam em /games/quem-sou-eu/.
+// caem no 301 e chegam em /minisites/quem-sou-eu/.
 self.addEventListener("install", function () {
   self.skipWaiting();
 });
