@@ -23,7 +23,7 @@ window.NLS_MINISITES = [
     slug: "juros-compostos",
     title: "Juros compostos — calculadora",
     description:
-      "Simule aportes mensais e veja o patrimônio crescer — ou diga sua meta e descubra quanto guardar por mês.",
+      "Simule aportes mensais e veja o patrimônio crescer, ou diga sua meta e descubra quanto guardar por mês.",
     cover: null,
     tags: ["Ferramenta", "Finanças"],
   },

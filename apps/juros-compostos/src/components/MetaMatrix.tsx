@@ -51,7 +51,7 @@ export function MetaMatrix({ grid, meta, inicial, im, selected, onSelect }: Meta
                       aria-label={`${
                         aporte === 0 ? "Sem aporte" : `${fmtBRL(aporte)} por mês`
                       } durante ${anos} ${anos === 1 ? "ano" : "anos"}: ${fmtBRL(fv)}${
-                        hits ? " — atinge a meta" : ""
+                        hits ? ", atinge a meta" : ""
                       }`}
                       onClick={() => onSelect({ aporte, anos })}
                     >

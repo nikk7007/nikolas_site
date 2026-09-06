@@ -74,7 +74,7 @@ export function MetaPanel({ state, selected, onChange, onSelect }: MetaPanelProp
 
       {jaBateu && (
         <p className="calc-empty">
-          Você já tem {fmtBRL(state.inicial)} — meta de {fmtBRL(state.alvo)} batida.
+          Você já tem {fmtBRL(state.inicial)}: meta de {fmtBRL(state.alvo)} batida.
           Aumente a meta pra planejar o próximo passo.
         </p>
       )}
@@ -82,14 +82,14 @@ export function MetaPanel({ state, selected, onChange, onSelect }: MetaPanelProp
       {!jaBateu && state.alvo > 0 && !grid && (
         <p className="calc-empty">
           Só o rendimento dos seus {fmtBRL(state.inicial)} já chega a {fmtBRL(state.alvo)} em
-          menos de 3 anos — sem precisar de aporte.
+          menos de 3 anos, sem precisar de aporte.
         </p>
       )}
 
       {grid && (
         <>
           <p className="matrix-hint">
-            Cada célula mostra o patrimônio projetado. As destacadas atingem a meta —
+            Cada célula mostra o patrimônio projetado. As destacadas atingem a meta:
             toque numa pra ver a evolução.
           </p>
           {grid.zeroAporteMonths !== null && (
