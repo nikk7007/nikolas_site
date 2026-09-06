@@ -19,4 +19,12 @@ window.NLS_GAMES = [
     cover: "games/quem-sou-eu/assets/og-image.png",
     tags: ["Festa", "Offline"],
   },
+  {
+    slug: "juros-compostos",
+    title: "Juros compostos — calculadora",
+    description:
+      "Simule aportes mensais e veja o patrimônio crescer — ou diga sua meta e descubra quanto guardar por mês.",
+    cover: null,
+    tags: ["Ferramenta", "Finanças"],
+  },
 ];

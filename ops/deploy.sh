@@ -20,6 +20,7 @@ rsync "${FLAGS[@]}" \
   --exclude '.git' \
   --exclude '.gitignore' \
   --exclude 'ops/' \
+  --exclude 'apps/' \
   --exclude 'api/email/tests/' \
   --exclude 'api/email/.github/' \
   --exclude 'api/email/composer.lock' \
