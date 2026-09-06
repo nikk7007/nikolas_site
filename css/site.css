@@ -1,6 +1,6 @@
 /* ============================================================
    nikolasleme.com.br — tokens e componentes do site (landing,
-   catálogo de games e 404). Identidade: brandbook NLS.
+   catálogo de minisites e 404). Identidade: brandbook NLS.
    Regra da marca: nunca mais de um ponto quente (areia) por tela.
    ============================================================ */
 
@@ -680,7 +680,7 @@ a.card:focus-visible {
   color: var(--slate);
 }
 
-/* cards no fundo escuro (games) */
+/* cards no fundo escuro (minisites) */
 .section-ink .card { background: var(--ink-2); border-color: var(--line-dark); }
 .section-ink .card p { color: var(--slate-soft); }
 .section-ink .card h3 { color: var(--paper); }

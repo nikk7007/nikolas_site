@@ -1,5 +1,5 @@
 // Renderização da vitrine/catálogo e micro-interações da página.
-// Sem dependências: os dados vêm de js/data/*.js (window.NLS_PROJECTS/NLS_GAMES).
+// Sem dependências: os dados vêm de js/data/*.js (window.NLS_PROJECTS/NLS_MINISITES).
 (function () {
   "use strict";
 
@@ -33,10 +33,10 @@
     });
   }
 
-  // root: prefixo até a raiz do site ("" na home, "../" dentro de /games).
+  // root: prefixo até a raiz do site ("" na home, "../" dentro de /minisites).
   function renderCards(mount, items, root, linkHint) {
     items.forEach(function (item) {
-      var href = item.slug ? root + "games/" + item.slug + "/" : item.link;
+      var href = item.slug ? root + "minisites/" + item.slug + "/" : item.link;
       var card = el(href ? "a" : "article", "card reveal");
       if (href) {
         card.href = href;
@@ -77,10 +77,10 @@
     renderCards(projectsMount, window.NLS_PROJECTS, "", "Visitar →");
   }
 
-  var gamesMount = document.getElementById("games-cards");
-  if (gamesMount && window.NLS_GAMES) {
-    var root = gamesMount.getAttribute("data-root") || "";
-    renderCards(gamesMount, window.NLS_GAMES, root, "Jogar →");
+  var minisitesMount = document.getElementById("minisites-cards");
+  if (minisitesMount && window.NLS_MINISITES) {
+    var root = minisitesMount.getAttribute("data-root") || "";
+    renderCards(minisitesMount, window.NLS_MINISITES, root, "Abrir →");
   }
 
   // Header flutuante — depois de rolar, descola do topo e das laterais.

@@ -37,7 +37,7 @@ export default defineConfig({
   base: "./",
   plugins: [react(), serveSiteShell()],
   build: {
-    outDir: path.resolve(import.meta.dirname, "../../games/juros-compostos"),
+    outDir: path.resolve(import.meta.dirname, "../../minisites/juros-compostos"),
     emptyOutDir: true,
   },
 });

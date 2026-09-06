@@ -1,7 +1,7 @@
 # Spin — Roleta Online
 
 Roleta online grátis para sortear nomes, itens e tomar decisões. Parte do
-monorepo do site — vive em **https://nikolasleme.com.br/games/roleta/**
+monorepo do site — vive em **https://nikolasleme.com.br/minisites/roleta/**
 (o subdomínio antigo `spin.` só redireciona).
 
 ## Estrutura
