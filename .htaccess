@@ -15,8 +15,8 @@ ErrorDocument 404 /404.html
 # --- Nada de servir arquivos de projeto/dev ---
 # Caminhos com segmento começando por "." (.git, .env, ...), exceto .well-known.
 RewriteRule (^|/)\.(?!well-known) - [F,L]
-# Pastas de operação e docs do repo.
-RewriteRule ^ops(/|$) - [F,L]
+# Pastas de operação, fontes de apps buildados e docs do repo.
+RewriteRule ^(ops|apps)(/|$) - [F,L]
 RewriteRule \.(md|example|lock|dist)$ - [F,L]
 
 # --- Compressão ---

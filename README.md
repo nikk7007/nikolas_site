@@ -8,7 +8,10 @@ Um push + `./ops/deploy.sh --go` e o site inteiro está atualizado.
 ├── games/
 │   ├── index.html        catálogo (renderiza js/data/games.js)
 │   ├── roleta/           Spin — roleta online (ex-repo spin)
-│   └── quem-sou-eu/      PWA de adivinhação (ex-repo quem_sou_eu)
+│   ├── quem-sou-eu/      PWA de adivinhação (ex-repo quem_sou_eu)
+│   └── juros-compostos/  calculadora de juros (build React; fonte em apps/)
+├── apps/                 fontes dos apps buildados (não sobem no deploy)
+│   └── juros-compostos/  Vite + React + Recharts → builda pra games/
 ├── form/                 formulário de briefing (build Vue; fonte no repo nls_form)
 │   └── api/send.php      envia respostas por e-mail (Resend)
 ├── api/email/            API de e-mail central (ex-repo nls_email_api)
@@ -50,6 +53,7 @@ cd api/email && composer install && composer test
 |---|---|
 | nikolasleme.com.br | landing (este repo, raiz) |
 | /games, /games/roleta, /games/quem-sou-eu | jogos |
+| /games/juros-compostos | calculadora de juros compostos |
 | /form | briefing de clientes |
 | /api/email | API de e-mail central |
 | links.nikolasleme.com.br | app de links (repo próprio, com banco) |
