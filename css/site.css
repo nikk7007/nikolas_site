@@ -96,7 +96,7 @@ img { max-width: 100%; display: block; }
 
 .site-head.is-floating .wrap {
   pointer-events: auto;
-  width: min(680px, calc(100vw - 28px));
+  width: var(--w);
   min-height: 48px;
   padding-inline: clamp(14px, 3vw, 20px);
   background: color-mix(in srgb, var(--ink-2) 92%, transparent);
