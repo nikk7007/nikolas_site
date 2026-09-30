@@ -1,3 +1,3 @@
-# form.nikolasleme.com.br -> home (modo pessoal; era /form/ — restaurar na virada PJ)
+# form.nikolasleme.com.br -> nikolasleme.com.br/form/ (301 permanente)
 RewriteEngine On
-RewriteRule ^(.*)$ https://nikolasleme.com.br/ [R=301,L]
+RewriteRule ^(.*)$ https://nikolasleme.com.br/form/$1 [R=301,L]
