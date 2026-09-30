@@ -803,8 +803,7 @@ a.card:focus-visible {
 }
 
 @media (max-width: 560px) {
-  .contact-row { grid-template-columns: 1fr auto; }
-  .contact-row-hint { grid-column: 1 / -1; }
+  .contact-row { grid-template-columns: 88px 1fr auto; column-gap: 14px; }
 }
 
 /* ---------- footer ---------- */
