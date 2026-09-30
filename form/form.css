@@ -158,6 +158,8 @@
   border-top: 1px solid var(--line-light);
 }
 .bf-nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+/* .btn do site foi feito pra <a>; aqui ele é <button> e precisa da mãozinha */
+.bf button { cursor: pointer; }
 .bf-next { margin-left: auto; min-height: 48px; }
 .bf-next[disabled] { opacity: 0.6; cursor: progress; }
 .bf-back {
