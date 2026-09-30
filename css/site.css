@@ -907,6 +907,7 @@ a.card:focus-visible {
 /* toque: links de texto com área mínima pro dedo */
 @media (pointer: coarse) {
   .hero-cta .arrow-link,
+  .hero-xray .xlink, /* réplica do raio-X acompanha, senão desalinha */
   .site-foot nav a { display: inline-block; padding-block: 11px; }
 }
 
