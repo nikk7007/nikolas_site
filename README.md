@@ -58,7 +58,7 @@ cd api/email && composer install && composer test
 | nikolasleme.com.br | landing (este repo, raiz) |
 | /minisites, /minisites/roleta, /minisites/quem-sou-eu | jogos |
 | /minisites/juros-compostos | calculadora de juros compostos |
-| /artigos | artigos pra cliente leigo (por que ter site, tipos de site) |
+| /artigos | artigos pra cliente leigo (tecnologia sem mistério) |
 | /form | briefing de clientes |
 | /api/email | API de e-mail central |
 | links.nikolasleme.com.br | app de links (repo próprio, com banco) |
