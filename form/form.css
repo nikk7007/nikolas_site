@@ -1,34 +1,50 @@
-/* Briefing: usa os tokens e fontes do /css/site.css; aqui só o layout do form. */
+/* Briefing: usa os tokens e fontes do /css/site.css; aqui só o layout do form.
+   Meta: cada passo cabe numa tela de celular (375×667) sem rolar. */
 
-.bf-body { background: var(--paper); color: var(--ink); }
+.bf-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--paper);
+  color: var(--ink);
+}
 
 .bf-head {
   display: flex;
   align-items: center;
-  width: var(--w);
+  width: min(620px, calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
-  min-height: 64px;
+  min-height: 52px;
   border-bottom: 1px solid var(--line-light);
 }
-.bf-head .mark { color: var(--ink); }
+.bf-head .mark { color: var(--ink); font-size: 0.88rem; }
 
 .bf {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   width: min(620px, calc(100% - 2 * var(--gutter)));
-  margin: clamp(28px, 6vh, 56px) auto clamp(48px, 10vh, 96px);
+  margin-inline: auto;
 }
 
+/* ---------- boas-vindas ---------- */
+.bf-intro { margin: auto 0; padding-block: 32px; }
 .bf-intro h1 {
   margin: 0;
-  font-size: clamp(1.7rem, 4.2vw, 2.4rem);
-  line-height: 1.15;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 .bf-intro .eyebrow { color: var(--slate); }
-.bf-sub { margin: 12px 0 0; color: var(--stone); }
+.bf-sub { margin: 14px 0 0; max-width: 46ch; color: var(--stone); }
+.bf-start { margin-top: 28px; min-height: 48px; }
 
+/* ---------- form ---------- */
+#briefing:not([hidden]) { flex: 1; display: flex; flex-direction: column; }
+
+.bf-top { padding-top: 18px; }
 .bf-progress {
   height: 4px;
-  margin-top: 32px;
   background: var(--line-light);
   border-radius: 99px;
   overflow: hidden;
@@ -37,35 +53,36 @@
   display: block;
   height: 100%;
   background: var(--slate);
-  transform: scaleX(0.2);
+  transform: scaleX(0.111);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.bf-step-label { margin: 10px 0 0; font-size: 0.82rem; font-weight: 600; color: var(--stone); }
+.bf-step-label { margin: 8px 0 0; font-size: 0.8rem; font-weight: 600; color: var(--stone); }
 
+.bf-steps { flex: 1; }
 .bf-step { margin: 0; padding: 0; border: 0; min-width: 0; }
 .bf-step legend {
   padding: 0;
-  margin: 22px 0 6px;
+  margin: 14px 0 0;
   font-size: 1.3rem;
   font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.01em;
 }
+.bf-step legend:focus { outline: none; }
 
-.bf-field { margin-top: 22px; }
-.bf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
-@media (max-width: 560px) { .bf-row { grid-template-columns: 1fr; } }
+.bf-field { margin-top: 16px; }
 
 .bf-field label,
 .bf-q {
   display: block;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
 }
-.bf-opt { font-weight: 400; font-size: 0.82rem; color: var(--stone); }
-.bf-hint { margin: -2px 0 10px; font-size: 0.85rem; color: var(--stone); }
-.bf-field .bf-hint:last-child { margin: 8px 0 0; }
+.bf-opt { font-weight: 400; font-size: 0.8rem; color: var(--stone); }
+.bf-hint { margin: -2px 0 8px; font-size: 0.84rem; color: var(--stone); }
+.bf-field .bf-hint:last-child { margin: 6px 0 0; }
 
 .bf input[type="text"],
 .bf input[type="tel"],
@@ -73,8 +90,8 @@
 .bf textarea {
   display: block;
   width: 100%;
-  min-height: 48px;
-  padding: 12px 14px;
+  min-height: 46px;
+  padding: 11px 14px;
   font: inherit;
   font-size: 1rem; /* 16px: iOS não dá zoom no foco */
   color: var(--ink);
@@ -92,18 +109,18 @@
   border-color: var(--slate);
 }
 .bf [aria-invalid="true"] { border-color: #b3261e; }
-.bf-err { margin: 6px 0 0; font-size: 0.85rem; color: #b3261e; }
+.bf-err { margin: 5px 0 0; font-size: 0.84rem; color: #b3261e; }
 
 /* chips = radio/checkbox nativos com cara de botão */
-.bf-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.bf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .bf-chip { position: relative; margin: 0 !important; font-weight: 500 !important; }
 .bf-chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
 .bf-chip span {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 10px 16px;
-  font-size: 0.95rem;
+  padding: 9px 15px;
+  font-size: 0.93rem;
   line-height: 1.3;
   background: #fff;
   border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent);
@@ -116,22 +133,25 @@
 .bf-chip input:focus-visible + span { outline: 2px solid var(--slate); outline-offset: 2px; }
 
 .bf-note {
-  margin: 12px 0 0;
-  padding: 12px 14px;
-  font-size: 0.92rem;
+  margin: 10px 0 0;
+  padding: 10px 14px;
+  font-size: 0.9rem;
   background: color-mix(in srgb, var(--sand) 35%, #fff);
   border-radius: 8px;
 }
 
 .bf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
+/* botões presos embaixo: em tela muito pequena, rolam os campos, não o CTA */
 .bf-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 36px;
+  position: sticky;
+  bottom: 0;
+  margin-top: 20px;
+  padding: 12px 0 max(16px, env(safe-area-inset-bottom));
+  background: var(--paper);
+  border-top: 1px solid var(--line-light);
 }
+.bf-nav-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .bf-next { margin-left: auto; min-height: 48px; }
 .bf-next[disabled] { opacity: 0.6; cursor: progress; }
 .bf-back {
@@ -144,11 +164,10 @@
   border: 0;
   cursor: pointer;
 }
-.bf-status { margin: 16px 0 0; font-size: 0.92rem; }
+.bf-status { margin: 0 0 10px; font-size: 0.9rem; }
 .bf-status.is-error { color: #b3261e; }
 
-.bf-done { margin-top: 32px; }
+.bf-done { margin: auto 0; padding-block: 32px; }
 .bf-done:focus { outline: none; }
 .bf-done h2 { margin: 0 0 10px; font-size: 1.8rem; letter-spacing: -0.02em; }
 .bf-done .btn { margin-top: 12px; }
-.bf-step legend:focus { outline: none; }

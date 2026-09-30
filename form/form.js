@@ -137,7 +137,7 @@
     statusEl.hidden = true;
     save();
     if (focus) {
-      label.scrollIntoView({ block: "start", behavior: "smooth" });
+      window.scrollTo(0, 0);
       // foco no título do passo: leitor de tela anuncia, e o teclado do celular não abre sozinho
       var legend = steps[i].querySelector("legend");
       legend.tabIndex = -1;
@@ -219,9 +219,6 @@
 
   function done(d) {
     form.hidden = true;
-    document.querySelector(".bf-intro").hidden = true;
-    document.querySelector(".bf-progress").hidden = true;
-    label.hidden = true;
     var box = document.getElementById("done");
     document.getElementById("done-logo").hidden = d.logo !== "Sim";
     var msg = d.logo === "Sim"
@@ -234,7 +231,17 @@
   }
 
   // ---------- início ----------
-  var start = restore();
+  var intro = document.getElementById("intro");
+  var startBtn = document.getElementById("start");
+  var hadSaved = false;
+  try { hadSaved = !!localStorage.getItem(STORE); } catch (e) { /* ignora */ }
+  var startAt = restore();
   refreshConditionals();
-  show(start, false);
+  if (hadSaved) startBtn.querySelector(".btn-text").textContent = "Continuar de onde parei";
+
+  startBtn.addEventListener("click", function () {
+    intro.hidden = true;
+    form.hidden = false;
+    show(startAt, true);
+  });
 })();
