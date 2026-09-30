@@ -745,7 +745,7 @@ a.card:focus-visible {
 
 /* canais como lista escaneável: nome, dica curta, seta */
 .contact-list {
-  margin-top: clamp(36px, 6vh, 56px);
+  margin: clamp(36px, 6vh, 56px) -14px 0; /* o texto segue alinhado com o título; só o fundo vaza */
   border-top: 1px solid var(--line-dark);
 }
 
@@ -754,9 +754,29 @@ a.card:focus-visible {
   grid-template-columns: minmax(110px, 170px) 1fr auto;
   align-items: baseline;
   gap: 4px 20px;
-  padding-block: 17px;
+  padding: 17px 14px;
   border-bottom: 1px solid var(--line-dark);
   text-decoration: none;
+  position: relative;
+  isolation: isolate;
+}
+
+/* fundo que varre da esquerda pra direita no hover e sai pela direita */
+.contact-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--slate) 32%, transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-row:hover::before,
+.contact-row:focus-visible::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .contact-row-name {
@@ -918,7 +938,7 @@ a.card:focus-visible {
   .btn::after, .btn .btn-text { transition: none; }
   .site-head, .site-head .wrap, .mark svg { transition: none; }
   .error-page .code path { animation: none; stroke-dashoffset: 0; }
-  .contact-row-arrow { transition: none; }
+  .contact-row-arrow, .contact-row::before { transition: none; }
   .site-menu, .nav-toggle span { transition: none; }
 }
 
