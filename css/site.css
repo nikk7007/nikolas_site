@@ -411,6 +411,11 @@ img { max-width: 100%; display: block; }
 }
 .hero.xray-seen .hero-hint { opacity: 0; }
 
+/* sem mouse a dica mente; lá quem convida é o .xray-toggle */
+@media (hover: none), (pointer: coarse) {
+  .hero-hint { display: none; }
+}
+
 /* a camada de baixo: mesmo hero, com o trabalho invisível exposto.
    Fica acima do front e é recortada pela lente (clip-path via JS). */
 .hero-xray {
