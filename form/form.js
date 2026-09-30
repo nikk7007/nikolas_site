@@ -133,7 +133,7 @@
     nextBtn.querySelector(".btn-text").textContent = last ? "Enviar" : "Continuar";
     backBtn.hidden = i === 0;
     label.textContent = "Passo " + (i + 1) + " de " + steps.length;
-    bar.style.width = ((i + 1) / steps.length) * 100 + "%";
+    bar.style.transform = "scaleX(" + (i + 1) / steps.length + ")";
     statusEl.hidden = true;
     save();
     if (focus) {

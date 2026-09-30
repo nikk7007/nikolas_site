@@ -36,10 +36,10 @@
 .bf-progress span {
   display: block;
   height: 100%;
-  width: 20%;
   background: var(--slate);
-  border-radius: inherit;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scaleX(0.2);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .bf-step-label { margin: 10px 0 0; font-size: 0.82rem; font-weight: 600; color: var(--stone); }
 
