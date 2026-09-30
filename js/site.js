@@ -228,10 +228,10 @@
         ty = e.clientY - r.top;
         if (!tr) { cx = tx; cy = ty; } // entra já na posição do cursor
         tr = LENS;
-        xhero.classList.add("xray-seen");
         lensKick();
       });
       xhero.addEventListener("pointerleave", function () {
+        xhero.classList.add("xray-seen"); // dica some só depois de usada
         tr = 0;
         lensKick();
       });
