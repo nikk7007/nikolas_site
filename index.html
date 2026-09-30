@@ -105,6 +105,28 @@
            Os valores são reais, copiados do próprio site.css. -->
       <div class="hero-xray" aria-hidden="true">
         <div class="xray-grid"></div>
+        <pre class="xcode"><code><i>// POST /auth/login</i>
+app.post("/auth/login", limiter,
+  async (req, res) => {
+    const { email, password } = req.body;
+    const user = await users.byEmail(email);
+
+    <i>// mesmo custo com ou sem usuário:</i>
+    <i>// o tempo de resposta não entrega</i>
+    <i>// quem tem conta</i>
+    const ok = await argon2.verify(
+      user?.hash ?? DUMMY_HASH, password);
+
+    if (!user || !ok)
+      return res.status(401)
+        .json({ error: "invalid credentials" });
+
+    const jwt = await sign({ sub: user.id },
+      { expiresIn: "15m" });
+    res.cookie("sid", jwt, { httpOnly: true,
+      secure: true, sameSite: "lax" });
+    res.sendStatus(204);
+  });</code></pre>
         <div class="wrap hero-center">
           <h1>
             <i class="xn xn-h1">&lt;h1&gt; clamp(2.1rem, 5.6vw, 4rem) · line-height: 1.12 · tracking −0.02em</i>
