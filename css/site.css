@@ -847,32 +847,7 @@ a.card:focus-visible {
 .article-body li { margin-bottom: 0.4em; }
 .article-body a { color: inherit; text-decoration-color: var(--slate); text-underline-offset: 3px; }
 
-/* índice: um artigo em destaque, o resto em lista */
-.article-feature {
-  display: block;
-  margin-inline: -14px; /* alinha as linhas com a lista */
-  padding: clamp(24px, 4vw, 36px) 14px;
-  border-top: 1px solid var(--line-dark);
-  text-decoration: none;
-  color: var(--paper);
-}
-.section .article-feature h2 {
-  max-width: 20ch;
-  margin: 6px 0 12px;
-  font-size: clamp(1.7rem, 3.8vw, 2.6rem);
-  text-wrap: balance;
-}
-.article-feature p { max-width: 56ch; margin: 0; color: var(--slate-soft); }
-.article-feature-cta {
-  display: inline-block;
-  margin-top: 18px;
-  font-weight: 600;
-  color: var(--sand);
-  transition: translate 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.article-feature:hover .article-feature-cta,
-.article-feature:focus-visible .article-feature-cta { translate: 6px 0; }
-
+/* índice: lista de artigos; o fixado fica no topo, um pouco maior */
 .article-list { margin-inline: -14px; border-top: 1px solid var(--line-dark); }
 .article-row {
   display: grid;
@@ -902,8 +877,20 @@ a.card:focus-visible {
 .article-row-desc { display: block; margin-top: 4px; font-size: 0.92rem; color: var(--slate-soft); }
 .article-row-arrow { color: var(--slate-soft); }
 
+.article-row.is-pinned { padding-block: 24px; }
+.article-row.is-pinned .article-row-title { font-size: 1.3rem; letter-spacing: -0.01em; }
+.article-row-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-soft);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .article-row::before, .article-feature-cta { transition: none; }
+  .article-row::before { transition: none; }
 }
 
 /* convite no meio do texto: quem não chega ao fim também vê o caminho */
