@@ -236,7 +236,7 @@
         lensKick();
       });
     } else if (xbtn) {
-      xbtn.hidden = false;
+      xhero.querySelectorAll(".xray-toggle").forEach(function (b) { b.hidden = false; });
       xbtn.addEventListener("click", function () {
         var on = xhero.classList.toggle("xray-on");
         xbtn.textContent = on ? "fechar o raio-X" : "ver o que ninguém vê";

@@ -521,6 +521,8 @@ img { max-width: 100%; display: block; }
 }
 
 .xmeta { color: rgba(124, 147, 172, 0.45); }
+.hero-xray .hero-hint,
+.hero-xray .xray-toggle { visibility: hidden; }
 
 /* o aro da lente */
 .lens-ring {
