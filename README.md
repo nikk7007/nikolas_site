@@ -28,6 +28,10 @@ Um push + `./ops/deploy.sh --go` e o site inteiro está atualizado.
   `cover: null` gera capa tipográfica na identidade).
 - **Jogo/minisite**: pasta nova em `minisites/<slug>/` + entrada em `js/data/minisites.js`.
   Caminhos internos do jogo devem ser **relativos** (ele vive em subpasta).
+- **Artigo**: pasta `artigos/<slug>/index.html` (copiar um artigo existente;
+  caminhos **absolutos**) + card em `artigos/index.html` + URL no `sitemap.xml`.
+- **Mexeu em `css/site.css` ou `js/site.js`?** Suba o `?v=` em todo HTML que
+  carrega o arquivo: o Cloudflare segura css/js por semanas.
 
 ## Segredos
 
@@ -54,6 +58,7 @@ cd api/email && composer install && composer test
 | nikolasleme.com.br | landing (este repo, raiz) |
 | /minisites, /minisites/roleta, /minisites/quem-sou-eu | jogos |
 | /minisites/juros-compostos | calculadora de juros compostos |
+| /artigos | artigos pra cliente leigo (por que ter site, tipos de site) |
 | /form | briefing de clientes |
 | /api/email | API de e-mail central |
 | links.nikolasleme.com.br | app de links (repo próprio, com banco) |
