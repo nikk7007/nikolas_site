@@ -770,7 +770,7 @@ a.card:focus-visible {
   background: color-mix(in srgb, var(--slate) 32%, transparent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1); /* mesma curva da lâmina do .btn */
 }
 
 .contact-row:hover::before,
