@@ -340,6 +340,10 @@ img { max-width: 100%; display: block; }
   margin-top: 38px;
 }
 
+/* o CTA real fica acima do raio-X (z 3): a lente anota em volta,
+   mas nunca apaga o botão */
+.hero-front .hero-cta { position: relative; z-index: 4; }
+
 .hero .arrow-link { color: var(--slate-soft); }
 .hero .arrow-link:hover { color: var(--paper); }
 
