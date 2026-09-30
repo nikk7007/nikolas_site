@@ -847,6 +847,23 @@ a.card:focus-visible {
 .article-body li { margin-bottom: 0.4em; }
 .article-body a { color: inherit; text-decoration-color: var(--slate); text-underline-offset: 3px; }
 
+/* convite no meio do texto: quem não chega ao fim também vê o caminho */
+.article-cta,
+.story .article-cta {
+  margin: 1.6em 0;
+  padding: 14px 0;
+  border-block: 1px solid var(--line-light);
+  font: 500 0.95rem/1.5 var(--sans);
+  color: var(--slate);
+}
+.article-cta a { font-weight: 600; color: var(--ink); }
+
+/* toque: links de texto com área mínima pro dedo */
+@media (pointer: coarse) {
+  .hero-cta .arrow-link,
+  .site-foot nav a { display: inline-block; padding-block: 11px; }
+}
+
 /* tabela de comparação: rola dentro da caixa no mobile, a página não */
 .compare-scroll {
   margin: 1.4em 0 0;
