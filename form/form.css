@@ -134,7 +134,7 @@
 .bf-chip input:checked + span {
   color: var(--paper);
   background: var(--ink);
-  box-shadow: inset 0 -3px 0 var(--sand);
+  box-shadow: inset 3px -3px 0 var(--sand); /* borda de areia à esquerda e embaixo */
 }
 .bf-chip input:focus-visible + span { outline: 2px solid var(--slate); outline-offset: 2px; }
 
