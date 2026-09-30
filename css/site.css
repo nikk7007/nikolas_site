@@ -825,6 +825,133 @@ a.card:focus-visible {
   .contact-row { grid-template-columns: 88px 1fr auto; column-gap: 14px; }
 }
 
+/* ---------- artigos ---------- */
+
+.article-head h1 {
+  margin: 0;
+  max-width: 22ch;
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.article-body { max-width: 68ch; }
+.section .article-body h2 {
+  margin: 2em 0 0.6em;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+}
+.section .article-body h2:first-child { margin-top: 0; }
+.article-body ul { margin: 0 0 1.2em; padding-left: 1.2em; }
+.article-body li { margin-bottom: 0.4em; }
+.article-body a { color: inherit; text-decoration-color: var(--slate); text-underline-offset: 3px; }
+
+/* índice: lista de artigos; o fixado fica no topo, um pouco maior */
+.article-list { margin-inline: -14px; border-top: 1px solid var(--line-dark); }
+.article-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 14px;
+  border-bottom: 1px solid var(--line-dark);
+  text-decoration: none;
+  position: relative;
+  isolation: isolate;
+}
+/* mesma varredura do contato */
+.article-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--slate) 32%, transparent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+}
+.article-row:hover::before,
+.article-row:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+.article-row-title { display: block; font-weight: 700; font-size: 1.05rem; color: var(--paper); }
+.article-row-desc { display: block; margin-top: 4px; font-size: 0.92rem; color: var(--slate-soft); }
+.article-row-arrow { color: var(--slate-soft); }
+
+.article-row.is-pinned { padding-block: 24px; }
+.article-row.is-pinned .article-row-title { font-size: 1.3rem; letter-spacing: -0.01em; }
+.article-row-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-row::before { transition: none; }
+}
+
+/* convite no meio do texto: quem não chega ao fim também vê o caminho */
+.article-cta,
+.story .article-cta {
+  margin: 1.6em 0;
+  padding: 14px 0;
+  border-block: 1px solid var(--line-light);
+  font: 500 0.95rem/1.5 var(--sans);
+  color: var(--slate);
+}
+.article-cta a { font-weight: 600; color: var(--ink); }
+
+/* toque: links de texto com área mínima pro dedo */
+@media (pointer: coarse) {
+  .hero-cta .arrow-link,
+  .site-foot nav a { display: inline-block; padding-block: 11px; }
+}
+
+/* tabela de comparação: rola dentro da caixa no mobile, a página não */
+.compare-scroll {
+  margin: 1.4em 0 0;
+  overflow-x: auto;
+  border: 1px solid var(--line-light);
+  border-radius: 10px;
+}
+.compare {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font: 0.9rem/1.45 var(--sans);
+}
+.compare th,
+.compare td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line-light);
+}
+.compare thead th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.compare tbody th {
+  position: sticky;
+  left: 0;
+  font-weight: 700;
+  background: var(--paper);
+}
+.compare tbody tr:last-child > * { border-bottom: 0; }
+
+/* "qual escolher": nomes longos, a dica desce pra linha de baixo no mobile */
+@media (max-width: 560px) {
+  .choose .contact-row { grid-template-columns: 1fr auto; }
+  .choose .contact-row-hint { grid-column: 1 / -1; }
+  .choose .contact-row-arrow { grid-row: 1; grid-column: 2; }
+}
+
 /* ---------- footer ---------- */
 
 .site-foot {
