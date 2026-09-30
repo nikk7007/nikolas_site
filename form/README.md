@@ -1,12 +1,18 @@
 # Formulário de briefing
 
-Formulário que o Nikolas envia a clientes no início de cada projeto; as
-respostas chegam formatadas por e-mail (via Resend) e alimentam a proposta.
+Briefing que o cliente preenche antes da proposta; as respostas chegam
+formatadas por e-mail (via Resend).
 
-**Esta pasta é só o build.** O fonte (Vue + Vite) mora no repo privado
-[`nls_form`](https://github.com/nikk7007/nls_form) — pra alterar o formulário:
-alterar lá, `npm run build` e copiar o `dist/` pra cá (mantendo `api/`).
+HTML/CSS/JS puro, como o resto do site (antes era um build Vue do repo
+`nls_form`, aposentado em set/2026):
 
-- `index.html` + `assets/` — build Vue (chama `api/send.php` com caminho relativo)
-- `api/send.php` — recebe as respostas e envia o e-mail; segredos vêm do
-  `.env.form` três níveis acima (fora da web) — ver `ops/DEPLOY.md` na raiz
+- `index.html` — as perguntas, em 9 passos curtos (`fieldset.bf-step`), cada um cabe numa tela de celular. Campo
+  condicional: `data-show-if="nome=valor"`.
+- `form.js` — navegação, validação inline, salva no localStorage
+  (`briefing-v2`), monta o markdown e faz POST em `api/send.php`.
+- `form.css` — layout; tokens e fontes vêm de `/css/site.css`.
+- `api/send.php` — recebe `{subject, markdown, replyTo, website}` e envia o
+  e-mail; segredos vêm do `.env.form` três níveis acima (fora da web) — ver
+  `ops/DEPLOY.md` na raiz. `website` é honeypot.
+
+Mudou `form.css`/`form.js`? Suba o `?v=` no `index.html` (Cloudflare).

@@ -1,18 +1,255 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <title>Formulários — Nikolas Leme Santos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=author@400,600,800&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="./assets/index-marCBqCH.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-pIq3AjJa.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Briefing — Nikolas Leme Santos</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css?v=20260930d" />
+  <link rel="stylesheet" href="form.css?v=7" />
 </head>
-<body>
-  <div id="app"></div>
+<body class="bf-body">
+  <header class="bf-head">
+    <a class="mark" href="/" aria-label="Nikolas Leme Santos — início">
+      <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="12" fill="#24272c" />
+        <text x="32" y="43" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" fill="#f4f2ee">N</text>
+        <path d="M14 50 L50 42" stroke="#d8cbb8" stroke-width="4" stroke-linecap="round" />
+      </svg>
+      <span>NIKOLAS&nbsp;LEME</span>
+    </a>
+  </header>
+
+  <main class="bf">
+    <!-- boas-vindas: tela própria, pra cada passo caber sem rolar -->
+    <section class="bf-intro" id="intro">
+      <p class="eyebrow">Briefing</p>
+      <h1>Vamos começar seu projeto</h1>
+      <p class="bf-sub">
+        Umas perguntas rápidas, uns 5 minutos. Se não souber alguma, pode pular:
+        a gente conversa depois.
+      </p>
+      <button type="button" class="btn btn-ink bf-start" id="start"><span class="btn-text">Começar</span></button>
+    </section>
+
+    <form id="briefing" novalidate hidden>
+      <div class="bf-top">
+        <div class="bf-progress" aria-hidden="true"><span></span></div>
+        <p class="bf-step-label" id="step-label" aria-live="polite">Passo 1 de 9</p>
+      </div>
+
+      <div class="bf-steps">
+        <!-- 1 -->
+        <fieldset class="bf-step">
+          <legend>Pra eu falar com você</legend>
+          <div class="bf-field">
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" required
+                   data-err="Escreve seu nome pra eu saber com quem falo." />
+          </div>
+          <div class="bf-field">
+            <label for="whatsapp">WhatsApp</label>
+            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel"
+                   placeholder="(19) 99999-9999" required data-phone
+                   data-err="Coloca o WhatsApp com DDD, tipo (19) 99999-9999." />
+          </div>
+          <div class="bf-field">
+            <label for="email">E-mail <span class="bf-opt">opcional</span></label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email"
+                   placeholder="voce@exemplo.com"
+                   data-err="Esse e-mail parece incompleto. Confere se tem @ e o final (.com, .com.br)." />
+          </div>
+        </fieldset>
+
+        <!-- 2 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Seu negócio</legend>
+          <div class="bf-field">
+            <label for="negocio">O que seu negócio faz, em uma frase?</label>
+            <input id="negocio" name="negocio" type="text" required
+                   placeholder="ex: confeitaria de bolos de festa"
+                   data-err="Uma frase já basta, tipo &quot;confeitaria de bolos de festa&quot;." />
+          </div>
+          <div class="bf-field">
+            <label for="cliente">Quem é o seu cliente? <span class="bf-opt">opcional</span></label>
+            <input id="cliente" name="cliente" type="text"
+                   placeholder="ex: mães da região, noivas, pequenas empresas" />
+          </div>
+          <div class="bf-field">
+            <label for="diferencial">Por que escolhem você e não outro? <span class="bf-opt">opcional</span></label>
+            <input id="diferencial" name="diferencial" type="text" placeholder="ex: entrego no mesmo dia" />
+          </div>
+        </fieldset>
+
+        <!-- 3 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Mais sobre o negócio</legend>
+          <div class="bf-field">
+            <label for="instagram">Instagram <span class="bf-opt">opcional</span></label>
+            <input id="instagram" name="instagram" type="text" autocomplete="off" autocapitalize="none"
+                   placeholder="@seunegocio" />
+          </div>
+          <div class="bf-field">
+            <label for="siteAtual">Site atual <span class="bf-opt">opcional</span></label>
+            <input id="siteAtual" name="siteAtual" type="text" inputmode="url" autocomplete="url"
+                   autocapitalize="none" placeholder="www.seunegocio.com.br" />
+          </div>
+          <div class="bf-field">
+            <label for="decisao">Mais alguém decide junto? <span class="bf-opt">opcional</span></label>
+            <input id="decisao" name="decisao" type="text" placeholder="ex: meu sócio" />
+          </div>
+        </fieldset>
+
+        <!-- 4 -->
+        <fieldset class="bf-step" hidden>
+          <legend>O site</legend>
+          <div class="bf-field">
+            <label for="falta">O que está faltando hoje, que o site resolveria?</label>
+            <textarea id="falta" name="falta" rows="4" required
+                      placeholder="ex: não me acham no Google, perco tempo explicando preço"
+                      data-err="Conta com suas palavras, mesmo que curto."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 5 -->
+        <fieldset class="bf-step" hidden>
+          <legend>O que a pessoa deve fazer no site?</legend>
+          <div class="bf-field" role="group" aria-label="Ação principal do visitante">
+            <p class="bf-hint">Escolha a mais importante.</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="acao" value="Responder um formulário" /><span>Responder formulário</span></label>
+              <label class="bf-chip"><input type="radio" name="acao" value="Me chamar no WhatsApp" /><span>Chamar no WhatsApp</span></label>
+              <label class="bf-chip"><input type="radio" name="acao" value="Ir pra outra página" /><span>Ir pra outra página</span></label>
+              <label class="bf-chip"><input type="radio" name="acao" value="Pedir orçamento" /><span>Pedir orçamento</span></label>
+            </div>
+          </div>
+          <div class="bf-field" data-show-if="acao=Ir pra outra página" hidden>
+            <label for="acaoLink">Qual página? <span class="bf-opt">opcional</span></label>
+            <input id="acaoLink" name="acaoLink" type="text" inputmode="url" autocapitalize="none"
+                   placeholder="ex: link da loja, do cardápio, da agenda" />
+          </div>
+        </fieldset>
+
+        <!-- 6 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Precisa de alguma dessas coisas?</legend>
+          <div class="bf-field" role="group" aria-label="Recursos do site">
+            <p class="bf-hint">Pode marcar várias.</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Mostrar fotos dos trabalhos ou produtos" /><span>Mostrar fotos dos trabalhos ou produtos</span></label>
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Agendar horário online" /><span>Agendar horário online</span></label>
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Vender e receber pagamento pelo site" /><span>Vender e receber pagamento pelo site</span></label>
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Área do cliente com login" /><span>Área do cliente com login</span></label>
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Blog com artigos" /><span>Blog com artigos</span></label>
+              <label class="bf-chip"><input type="checkbox" name="recursos" value="Nada disso, só apresentar o negócio" data-exclusive /><span>Nada disso, só apresentar o negócio</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 7 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Logo e e-mail</legend>
+          <div class="bf-field" role="group" aria-labelledby="logo-q">
+            <p class="bf-q" id="logo-q">Já tem logo?</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="logo" value="Sim" /><span>Sim</span></label>
+              <label class="bf-chip"><input type="radio" name="logo" value="Não" /><span>Não</span></label>
+            </div>
+            <p class="bf-note" data-show-if="logo=Sim" hidden>
+              Depois de enviar, me manda a logo pelo WhatsApp, no maior tamanho que tiver.
+            </p>
+          </div>
+          <div class="bf-field" role="group" aria-labelledby="emailpro-q">
+            <p class="bf-q" id="emailpro-q">Quer um e-mail com o nome do negócio?</p>
+            <p class="bf-hint" id="emailpro-h">Tipo contato@seunegocio.com.br, no lugar do Gmail.</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="emailPro" value="Quero" aria-describedby="emailpro-h" /><span>Quero</span></label>
+              <label class="bf-chip"><input type="radio" name="emailPro" value="Já tenho" /><span>Já tenho</span></label>
+              <label class="bf-chip"><input type="radio" name="emailPro" value="Não precisa" /><span>Não precisa</span></label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 8 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Fotos e referências</legend>
+          <div class="bf-field" role="group" aria-labelledby="fotos-q">
+            <p class="bf-q" id="fotos-q">Tem fotos do negócio?</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="fotos" value="Tenho fotos" /><span>Tenho fotos</span></label>
+              <label class="bf-chip"><input type="radio" name="fotos" value="Não tenho" /><span>Não tenho</span></label>
+            </div>
+          </div>
+          <div class="bf-field" role="group" aria-labelledby="semfotos-q" data-show-if="fotos=Não tenho" hidden>
+            <p class="bf-q" id="semfotos-q">Então você prefere…</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="semFotos" value="Usar fotos de banco de imagens" /><span>Fotos de banco de imagens</span></label>
+              <label class="bf-chip"><input type="radio" name="semFotos" value="Site sem fotos" /><span>Site sem fotos</span></label>
+            </div>
+            <p class="bf-hint">Banco de imagens: fotos profissionais prontas, compradas ou gratuitas.</p>
+          </div>
+          <div class="bf-field">
+            <label for="referencias">Um site de que você goste <span class="bf-opt">opcional</span></label>
+            <input id="referencias" name="referencias" type="text" inputmode="url" autocapitalize="none"
+                   placeholder="cola o link, mesmo de outra área" />
+          </div>
+        </fieldset>
+
+        <!-- 9 -->
+        <fieldset class="bf-step" hidden>
+          <legend>Prazo e investimento</legend>
+          <div class="bf-field" role="group" aria-labelledby="prazo-q">
+            <p class="bf-q" id="prazo-q">Pra quando você precisa?</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="prazo" value="Sem pressa" /><span>Sem pressa</span></label>
+              <label class="bf-chip"><input type="radio" name="prazo" value="Nas próximas semanas" /><span>Próximas semanas</span></label>
+              <label class="bf-chip"><input type="radio" name="prazo" value="Tenho uma data" /><span>Tenho uma data</span></label>
+            </div>
+          </div>
+          <div class="bf-field" data-show-if="prazo=Tenho uma data" hidden>
+            <label for="prazoData">Qual data, e por quê?</label>
+            <input id="prazoData" name="prazoData" type="text" placeholder="ex: 15/11, inauguração da loja" />
+          </div>
+          <div class="bf-field" role="group" aria-labelledby="orc-q">
+            <p class="bf-q" id="orc-q">Faixa de investimento em mente?</p>
+            <div class="bf-chips">
+              <label class="bf-chip"><input type="radio" name="orcamento" value="Prefiro conversar" /><span>Prefiro conversar</span></label>
+              <label class="bf-chip"><input type="radio" name="orcamento" value="Até R$ 2 mil" /><span>Até R$ 2 mil</span></label>
+              <label class="bf-chip"><input type="radio" name="orcamento" value="R$ 2 a 5 mil" /><span>R$ 2 a 5 mil</span></label>
+              <label class="bf-chip"><input type="radio" name="orcamento" value="Acima de R$ 5 mil" /><span>Acima de R$ 5 mil</span></label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- honeypot: humano não vê, bot preenche -->
+      <input class="bf-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="bf-nav">
+        <p class="bf-status" id="status" role="status" hidden></p>
+        <div class="bf-nav-row">
+          <button type="button" class="bf-back" id="back" hidden>← Voltar</button>
+          <button type="submit" class="btn btn-ink bf-next" id="next"><span class="btn-text">Continuar</span></button>
+        </div>
+      </div>
+    </form>
+
+    <div class="bf-done" id="done" hidden tabindex="-1">
+      <p class="eyebrow">Enviado</p>
+      <h2>Recebi, obrigado!</h2>
+      <p>Vou ler com calma e te chamo no WhatsApp pra gente conversar.</p>
+      <p class="bf-note" id="done-logo" hidden>
+        Não esquece da logo: me manda pelo WhatsApp, no maior tamanho que tiver.
+      </p>
+      <p><a class="btn btn-ink" id="done-wa" href="https://wa.me/5519988284453" target="_blank" rel="noopener"><span class="btn-text">Abrir o WhatsApp</span></a></p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/imask@7.6.1/dist/imask.min.js" defer></script>
+  <script src="form.js?v=3" defer></script>
 </body>
 </html>
