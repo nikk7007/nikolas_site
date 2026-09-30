@@ -526,16 +526,16 @@ img { max-width: 100%; display: block; }
 .xcode {
   position: absolute;
   top: 50%;
-  left: calc(50% + 420px); /* meia caixa do h1 (17ch) + folga */
+  right: calc(50% + 405px); /* meia caixa do h1 (17ch) + folga */
   translate: 0 -50%;
   margin: 0;
-  font: 500 0.66rem/1.6 ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+  font: 500 0.64rem/1.6 ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
   text-align: left;
   color: rgba(124, 147, 172, 0.6);
 }
 .xcode i { font-style: normal; color: rgba(124, 147, 172, 0.38); }
 
-@media (max-width: 1519px) {
+@media (max-width: 1299px) {
   .xcode { display: none; }
 }
 .hero-xray .hero-hint,
