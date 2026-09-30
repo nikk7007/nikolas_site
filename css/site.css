@@ -747,21 +747,6 @@ a.card:focus-visible {
 
 .contact { text-align: left; }
 
-.contact-mail {
-  display: inline-block;
-  margin-top: 22px;
-  font-size: clamp(1.3rem, 3.4vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--paper);
-  text-decoration: none;
-  border-bottom: 2px solid var(--slate-soft);
-  padding-bottom: 4px;
-  transition: border-color 0.15s ease;
-  overflow-wrap: anywhere;
-}
-.contact-mail:hover { border-bottom-color: var(--sand); }
-
 /* canais como lista escaneável: nome, dica curta, seta */
 .contact-list {
   margin: clamp(36px, 6vh, 56px) -14px 0; /* o texto segue alinhado com o título; só o fundo vaza */
@@ -806,6 +791,7 @@ a.card:focus-visible {
 }
 
 .contact-row-hint {
+  overflow-wrap: anywhere; /* e-mail longo quebra em vez de vazar no mobile */
   color: var(--slate-soft);
   font-size: 0.92rem;
 }
@@ -907,6 +893,7 @@ a.card:focus-visible {
 /* toque: links de texto com área mínima pro dedo */
 @media (pointer: coarse) {
   .hero-cta .arrow-link,
+  .hero-xray .xlink, /* réplica do raio-X acompanha, senão desalinha */
   .site-foot nav a { display: inline-block; padding-block: 11px; }
 }
 
