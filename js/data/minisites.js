@@ -8,7 +8,7 @@ window.NLS_MINISITES = [
     title: "Spin — Roleta online",
     description:
       "Adicione qualquer lista de itens, personalize e gire. Perfeita pra sorteios e decisões difíceis entre amigos.",
-    cover: "minisites/roleta/og-image.png",
+    cover: "minisites/roleta/og-image.png?v=20261020",
     tags: ["Sorteio", "Grupo"],
   },
   {
