@@ -2,9 +2,10 @@ import { useState } from "react";
 import { SimPanel, type SimState } from "./components/SimPanel";
 import { MetaPanel, type MetaState } from "./components/MetaPanel";
 import { ComparePanel, type CompareState } from "./components/ComparePanel";
+import { AumentoAportePanel, type AumentoAporteState } from "./components/AumentoAportePanel";
 import type { Scenario } from "./components/MetaMatrix";
 
-type Mode = "sim" | "meta" | "comp";
+type Mode = "sim" | "meta" | "comp" | "aumento";
 
 export default function App() {
   const [mode, setMode] = useState<Mode>("sim");
@@ -28,6 +29,15 @@ export default function App() {
     anos: 10,
     a: { inicial: 0, aporte: 1000 },
     b: { inicial: 20000, aporte: 500 },
+  });
+  const [aumento, setAumento] = useState<AumentoAporteState>({
+    inicial: 1000,
+    taxa: 10,
+    taxaPeriodo: "aa",
+    stages: [
+      { id: crypto.randomUUID(), aporte: 500, meses: 12 },
+      { id: crypto.randomUUID(), aporte: 800, meses: 12 },
+    ],
   });
 
   return (
@@ -57,6 +67,14 @@ export default function App() {
         >
           Comparar
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={mode === "aumento"}
+          onClick={() => setMode("aumento")}
+        >
+          Aumento de aporte
+        </button>
       </div>
 
       {mode === "sim" && <SimPanel state={sim} onChange={setSim} />}
@@ -69,6 +87,7 @@ export default function App() {
         />
       )}
       {mode === "comp" && <ComparePanel state={comp} onChange={setComp} />}
+      {mode === "aumento" && <AumentoAportePanel state={aumento} onChange={setAumento} />}
     </div>
   );
 }
