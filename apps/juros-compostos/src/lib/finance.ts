@@ -44,6 +44,28 @@ export function simulate(p0: number, aporte: number, im: number, months: number)
   return out;
 }
 
+/** Encadeia estágios de aporte: saldo final de um vira saldo inicial do próximo. */
+export function simulateStaged(
+  p0: number,
+  im: number,
+  stages: { aporte: number; months: number }[],
+): MonthPoint[] {
+  const out: MonthPoint[] = [{ month: 0, invested: p0, interest: 0, monthInterest: 0, total: p0 }];
+  let total = p0;
+  let invested = p0;
+  let month = 0;
+  for (const stage of stages) {
+    const seg = simulate(total, stage.aporte, im, stage.months);
+    for (let i = 1; i < seg.length; i++) {
+      month += 1;
+      invested += stage.aporte;
+      out.push({ month, invested, interest: seg[i].total - invested, monthInterest: seg[i].monthInterest, total: seg[i].total });
+    }
+    total = seg[seg.length - 1].total;
+  }
+  return out;
+}
+
 /** Aporte mensal necessário pra sair de p0 e chegar em meta após n meses (≥ 0). */
 export function requiredAporte(meta: number, p0: number, im: number, months: number): number {
   if (months <= 0) return Infinity;

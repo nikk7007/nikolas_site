@@ -183,6 +183,52 @@
   background: var(--ink);
 }
 
+/* ── Lista de estágios (aumento de aporte) ───────────────── */
+
+.stage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: clamp(22px, 3.5vh, 32px);
+}
+
+.stage-remove {
+  margin-top: 14px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-dark);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--slate-soft);
+  font: 600 0.78rem var(--sans);
+  cursor: pointer;
+}
+
+.stage-remove:hover {
+  color: var(--paper);
+  border-color: var(--stone);
+}
+
+.stage-remove:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stage-add {
+  margin-bottom: clamp(22px, 3.5vh, 32px);
+  padding: 10px 18px;
+  border: 1px dashed var(--line-dark);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--slate-soft);
+  font: 600 0.85rem var(--sans);
+  cursor: pointer;
+}
+
+.stage-add:hover {
+  color: var(--paper);
+  border-color: var(--stone);
+}
+
 /* ── Resumo (stats) ───────────────────────────────────── */
 
 .stats {

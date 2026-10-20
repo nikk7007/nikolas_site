@@ -111,13 +111,14 @@ interface TermFieldProps {
   id: string;
   value: number;
   onChange: (v: number) => void;
+  label?: string;
 }
 
-/** Prazo em anos, sem teto. */
-export function TermField({ id, value, onChange }: TermFieldProps) {
+/** Prazo inteiro, sem teto (anos por padrão, mas reutilizável p/ meses). */
+export function TermField({ id, value, onChange, label = "Prazo (anos)" }: TermFieldProps) {
   return (
     <div className="field">
-      <label htmlFor={id}>Prazo (anos)</label>
+      <label htmlFor={id}>{label}</label>
       <IMaskInput
         mask={Number}
         scale={0}
