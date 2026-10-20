@@ -8,7 +8,7 @@ window.NLS_PROJECTS = [
     title: "Lemecc",
     description:
       "Site institucional de cliente: presença sóbria, rápida e fácil de manter, do domínio ao deploy.",
-    cover: "assets/covers/lemecc.jpg",
+    cover: "assets/covers/lemecc.webp",
     link: "https://lemecc.com.br",
     tags: ["Site", "Cliente"],
   },
@@ -16,7 +16,7 @@ window.NLS_PROJECTS = [
     title: "Vipax",
     description:
       "Landing page de produto — estrutura enxuta, foco em conversão e carregamento instantâneo.",
-    cover: "assets/covers/vipax.jpg",
+    cover: "assets/covers/vipax.webp",
     link: "https://vipax.eco.br",
     tags: ["Landing page", "Cliente"],
   },
