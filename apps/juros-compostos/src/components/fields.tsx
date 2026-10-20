@@ -115,7 +115,7 @@ interface TermFieldProps {
   onChange: (v: number) => void;
 }
 
-/** Prazo em anos, 1–50. */
+/** Prazo em anos, sem teto. */
 export function TermField({ id, value, onChange }: TermFieldProps) {
   return (
     <div className="field">
@@ -123,15 +123,14 @@ export function TermField({ id, value, onChange }: TermFieldProps) {
       <IMaskInput
         mask={Number}
         scale={0}
-        min={0}
-        max={50}
+        min={1}
         id={id}
         type="text"
         inputMode="numeric"
         autoComplete="off"
         defaultValue={String(value)}
         unmask
-        onAccept={(v) => onChange(Math.min(Math.max(Math.round(accepted(v)), 1), 50))}
+        onAccept={(v) => onChange(Math.max(Math.round(accepted(v)), 1))}
       />
     </div>
   );
