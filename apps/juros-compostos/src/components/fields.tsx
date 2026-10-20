@@ -34,7 +34,6 @@ export function CurrencyField({ id, label, value, max = MONEY_MAX, onChange }: C
           scale={2}
           thousandsSeparator="."
           radix=","
-          mapToRadix={["."]}
           normalizeZeros
           min={0}
           max={max}
@@ -75,7 +74,6 @@ export function RateField({ id, taxa, periodo, onChange }: RateFieldProps) {
           scale={2}
           thousandsSeparator="."
           radix=","
-          mapToRadix={["."]}
           normalizeZeros
           min={0}
           max={500}
