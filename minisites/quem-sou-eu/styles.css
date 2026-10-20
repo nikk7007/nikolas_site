@@ -17,6 +17,7 @@
   --faint:    rgba(234, 234, 234, 0.28);
   --line:     rgba(234, 234, 234, 0.16);
   --acc:      #e61919;                      /* aviation / hazard red */
+  --acc-text: #f02a2a;                     /* acc clareado: texto passa 4.5:1 no fundo */
   --acc-dim:  rgba(230, 25, 25, 0.5);
   --grid:     rgba(234, 234, 234, 0.05);
   --mono:     "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -181,7 +182,7 @@ body {
   color: var(--faint);
 }
 .cat:hover { background: var(--panel); }
-.cat:hover .cat-name { color: var(--acc); }
+.cat:hover .cat-name { color: var(--acc-text); }
 .cat:hover::before { color: var(--acc); }
 .cat:active { background: var(--acc); }
 .cat:active .cat-name,
@@ -205,7 +206,7 @@ body {
   grid-column: 1 / -1;
   min-height: 88px;
 }
-.cat-todas .cat-name { color: var(--acc); font-size: 1rem; }
+.cat-todas .cat-name { color: var(--acc-text); font-size: 1rem; }
 .cat-todas::after {
   content: "[ MIX ]";
   position: absolute;
