@@ -1,3 +1,0 @@
-# spin.nikolasleme.com.br -> nikolasleme.com.br/minisites/roleta/ (301 permanente)
-RewriteEngine On
-RewriteRule ^(.*)$ https://nikolasleme.com.br/minisites/roleta/$1 [R=301,L]
