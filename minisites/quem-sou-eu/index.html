@@ -11,7 +11,7 @@
       name="description"
       content="Quem sou eu? é um jogo de adivinhação para grupos: o app sorteia uma palavra, você encosta o celular na testa e os amigos dão dicas. Web, grátis, sem instalar."
     />
-    <title>Quem sou eu? — Jogo de adivinhação para grupos</title>
+    <title>Jogo Quem sou eu? online grátis: adivinhação pra grupo</title>
     <link rel="canonical" href="https://nikolasleme.com.br/minisites/quem-sou-eu/" />
 
     <!-- Open Graph -->
@@ -49,10 +49,39 @@
       content="https://nikolasleme.com.br/minisites/quem-sou-eu/assets/og-image.png"
     />
     <link rel="preload" href="/assets/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20261020" />
+    <link rel="stylesheet" href="styles.css?v=20261020b" />
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="manifest.webmanifest" />
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Quem sou eu?",
+        "url": "https://nikolasleme.com.br/minisites/quem-sou-eu/",
+        "description": "Jogo de adivinhação para grupos: o app sorteia uma palavra, você encosta o celular na testa e os amigos dão dicas.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Qualquer navegador",
+        "inLanguage": "pt-BR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+        "author": { "@type": "Person", "name": "Nikolas Leme Santos", "url": "https://nikolasleme.com.br/" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "O jogo Quem sou eu? é grátis?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim. É grátis, sem anúncios e sem cadastro." } },
+          { "@type": "Question", "name": "Precisa instalar alguma coisa?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Não, abre direto no navegador. Se quiser, dá pra adicionar à tela inicial e jogar como app, inclusive sem internet." } },
+          { "@type": "Question", "name": "Quantas pessoas podem jogar?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A partir de duas. Não tem limite: o celular vai passando de mão em mão." } }
+        ]
+      }
+    ]
+    </script>
   </head>
   <body>
     <main class="stage">
@@ -153,6 +182,68 @@
       </section>
     </main>
 
+    <!-- Texto pra quem chega pela busca (e pro Google). Só a tela inicial rola até aqui. -->
+    <footer class="sobre">
+      <section>
+        <h2>Jogo Quem sou eu? online e grátis</h2>
+        <p>
+          O clássico jogo da testa, direto no celular. Uma pessoa segura o
+          celular na testa sem ver a palavra, os amigos dão dicas e ela tenta
+          adivinhar quem ou o que é. Funciona no navegador, sem baixar app,
+          sem cadastro e sem anúncio.
+        </p>
+      </section>
+
+      <section>
+        <h2>Como jogar Quem sou eu?</h2>
+        <ol>
+          <li>Escolha uma categoria. O app sorteia uma palavra e ninguém vê antes da hora.</li>
+          <li>Quem vai adivinhar encosta o celular na testa, com a tela virada pros amigos, e toca em iniciar.</li>
+          <li>Depois de 3 segundos a palavra aparece por 5 segundos, só pra galera ler.</li>
+          <li>Os amigos dão dicas (ou respondem só sim e não) até a pessoa acertar.</li>
+          <li>Acertou? Toca em nova palavra e passa o celular pro próximo.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Categorias</h2>
+        <p>
+          São 415 palavras em 7 categorias: <strong>animais, famosos, objetos,
+          filmes, comidas, profissões e lugares</strong>. Dá pra sortear de
+          todas juntas ou usar o modo <strong>personalizado</strong>, em que
+          alguém digita a palavra e o jogador da vez não olha.
+        </p>
+      </section>
+
+      <section>
+        <h2>Jogo pra jogar em grupo</h2>
+        <p>
+          Serve pra festa, churrasco, viagem, encontro de família, aniversário
+          ou dinâmica em sala de aula. Basta um celular e duas pessoas ou mais.
+          Quanto maior a galera, mais engraçadas ficam as dicas.
+        </p>
+      </section>
+
+      <section>
+        <h2>Perguntas frequentes</h2>
+        <h3>O jogo Quem sou eu? é grátis?</h3>
+        <p>Sim. É grátis, sem anúncios e sem cadastro.</p>
+        <h3>Precisa instalar alguma coisa?</h3>
+        <p>
+          Não, abre direto no navegador. Se quiser, dá pra adicionar à tela
+          inicial e jogar como app, inclusive sem internet.
+        </p>
+        <h3>Quantas pessoas podem jogar?</h3>
+        <p>A partir de duas. Não tem limite: o celular vai passando de mão em mão.</p>
+      </section>
+
+      <p class="sobre-credit">
+        Feito por <a href="/">Nikolas Leme</a> ·
+        <a href="/minisites/">mais jogos e ferramentas</a> ·
+        <a href="/minisites/roleta/">roleta de sorteio</a>
+      </p>
+    </footer>
+
     <!-- HUD telemetry frame -->
     <div class="hud" aria-hidden="true">
       <span class="tl">// QUEM-SOU-EU : SYS</span>
@@ -164,7 +255,7 @@
     <div class="scan" aria-hidden="true"></div>
 
     <script src="words.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=20261020"></script>
     <script>
       // Registra o service worker (offline). Requer https ou localhost.
       if ("serviceWorker" in navigator) {

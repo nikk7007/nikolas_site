@@ -1348,6 +1348,15 @@ body::before {
   padding-top: 20px;
   margin-top: 4px;
 }
+
+.seo-credit a {
+  color: var(--ink-soft);
+  text-underline-offset: 3px;
+}
+
+.seo-credit a:hover {
+  color: var(--ink);
+}
 /* ---- responsive.css ---- */
 /* responsive.css — media queries for all breakpoints */
 
