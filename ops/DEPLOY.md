@@ -54,20 +54,15 @@ O `.env`/config do links continua onde ele já espera (conferir `api/config.php`
 
 ### 5. Redirects 301 nos subdomínios antigos
 
-Cada subdomínio antigo passa a ser só um `.htaccess` de redirect
-(arquivos prontos em `ops/redirects/`):
+`form` e `mail` são subdomínios na Hostinger com só um `.htaccess` de redirect:
 
 ```bash
-for s in spin qse form mail; do
+for s in form mail; do
   scp ops/redirects/$s.htaccess Hostinger:domains/$s.nikolasleme.com.br/public_html/.htaccess
 done
-# qse era PWA: sobe também o service worker kill-switch (ver comentário no htaccess)
-scp ops/redirects/qse-sw.js Hostinger:domains/qse.nikolasleme.com.br/public_html/sw.js
 ```
 
-Depois de confirmar que os redirects funcionam, o conteúdo antigo desses
-subdomínios pode ser removido (no qse ficam `.htaccess` **e** `sw.js`; nos
-outros, só o `.htaccess`).
+`spin` e `qse` foram aposentados (out/2026): removidos da Hostinger, sem redirect.
 
 ### 6. Conferência
 
@@ -75,7 +70,6 @@ outros, só o `.htaccess`).
 - /minisites/ , /minisites/roleta/ , /minisites/quem-sou-eu/ (PWA: instalar e testar offline)
 - /form/ — enviar um briefing de teste e ver o e-mail chegar
 - /api/email/ — `curl -X POST` com Bearer de teste (ver `api/email/docs/API.md`)
-- https://spin.nikolasleme.com.br → deve cair em /minisites/roleta/
 
 ## Repos antigos no GitHub
 
