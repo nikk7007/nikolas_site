@@ -488,6 +488,42 @@ body {
 
 /* ---- Responsive ------------------------------------------------------- */
 
+/* Texto de "como jogar" abaixo do jogo: só a tela inicial rola até ele. */
+body:has([data-screen="categoria"].is-active) { overflow-y: auto; }
+
+.sobre {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px clamp(20px, 6vw, 40px) 88px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  color: var(--dim);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.sobre section { display: flex; flex-direction: column; gap: 12px; }
+.sobre h2 {
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.sobre h3 { font-size: 0.9rem; font-weight: 600; color: var(--fg); margin-top: 6px; }
+.sobre ol { padding-left: 1.3rem; display: flex; flex-direction: column; gap: 8px; }
+.sobre ol li::marker { color: var(--acc); font-weight: 600; }
+.sobre strong { color: var(--fg); font-weight: 600; }
+.sobre a { color: var(--fg); text-underline-offset: 3px; }
+.sobre a:hover { color: var(--acc); }
+.sobre-credit {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
 @media (max-width: 380px) {
   .cats { grid-template-columns: 1fr; }
   .hud .bl, .hud .br { display: none; }

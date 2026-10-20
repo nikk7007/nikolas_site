@@ -91,6 +91,8 @@
     Object.entries(screens).forEach(([nome, el]) => {
       el.classList.toggle("is-active", nome === estado);
     });
+    // Só a tela inicial rola (texto de "como jogar" embaixo); o jogo fica no topo.
+    if (estado !== "categoria") window.scrollTo(0, 0);
   }
 
   // Nome amigável da categoria para exibição.
