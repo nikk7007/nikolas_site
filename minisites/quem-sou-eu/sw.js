@@ -2,12 +2,12 @@
 // Pré-cacheia o app shell e serve do cache quando não há rede.
 // Para forçar atualização após mudar arquivos: suba o número da versão.
 
-const CACHE = "quem-sou-eu-v5";
+const CACHE = "quem-sou-eu-v6";
 
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./styles.css?v=20261020b",
+  "./styles.css?v=20261020c",
   "./app.js?v=20261020",
   "./words.js",
   "./manifest.webmanifest",
